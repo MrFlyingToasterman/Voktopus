@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="3">
+        <file>
+            <url>src/voktopus/sysinit.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>433</line>
+                <key/>
+            </bookmark>
+            <bookmark id="2">
+                <name/>
+                <line>643</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>src/voktopus/Voktopus.java</url>
+            <bookmark id="3">
+                <name/>
+                <line>235</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/neo/NetBeansProjects/Voktopus/src/voktopus/sysinit.java</file>
+            <file>file:/home/neo/NetBeansProjects/Voktopus/src/voktopus/sysprofile.java</file>
+            <file>file:/home/neo/NetBeansProjects/Voktopus/src/voktopus/Voktopus.java</file>
+            <file>file:/home/neo/NetBeansProjects/Voktopus/src/voktopus/sysinput.java</file>
+        </group>
+    </open-files>
+</project-private>
