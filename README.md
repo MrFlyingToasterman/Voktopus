@@ -27,6 +27,6 @@ Es steht dir frei wo die Voktopus.jar liegt. Achte aber darauf dass du den Ordne
 speichert Voktopus deine Fragen.
 
 Stelle zudem Sicher dass du Java installiert hast. Mindestens das JRE 7.
-Java kannst du auf der Oracle webseite kostenlos herunterladen.
+Java kannst du auf der Oracle Webseite kostenlos herunterladen.
 
 Solltest du Probleme oder Fragen haben schreib mir einfach eine Nachricht :)
