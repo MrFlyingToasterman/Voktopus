@@ -20,7 +20,7 @@ nach unserem bewehrten Prinzip abfragen
 Fühle dich Frei meine Software zu verwenden, zu verbessern oder sonst irgendwas damit zu tun.
 
 # Instalation bzw Anleitung
-Lade dir die Voktopus<Version>-Master.zip herunter und entpacke sie.
+Lade dir die Voktopus-Version-Master.zip herunter und entpacke sie.
 Wenn du das Programm nicht bearbeiten willst kannst du in dem Ordner "dist" die Voktopus.jar
 Auf deinen Desktop ziehen und den Rest löschen.
 Es steht dir frei wo die Voktopus.jar liegt aber Sie legt ein Verzeichnis mit dem Namen vdata an.
