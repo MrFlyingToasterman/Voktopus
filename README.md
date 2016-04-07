@@ -7,8 +7,8 @@ Ein Vokabeltrainer der mehr kann.
 Voktopus verfügt über einen Pool der von dir gefüttert werden will!
 Aus dem Pool können gewünschte Karten mit beliebigen Fragen in die Lehrnkästen gezogen werden.
 
-# 4er Kasten System
-Voktopus setzt auf ein 4 Kastensystem für Optimales lernen.
+# 4er Kastensystem
+Voktopus setzt auf ein 4er Kastensystem für Optimales lernen.
 
 # Profile
 Multiple Profile ermöglichen dem Anwender das arbeiten mit vielen Lehrnkästen auf deren Themen bezogen.
