@@ -1,6 +1,8 @@
 # Voktopus
 Ein Vokabeltrainer der mehr kann. 
 
+![Voktopus](/screen0.png?raw=true "Voktopus")
+
 # Pool
 Voktopus verfügt über einen Pool der von dir gefüttert werden will!
 Aus dem Pool können gewünschte Karten mit beliebigen Fragen in die Lehrnkästen gezogen werden.
