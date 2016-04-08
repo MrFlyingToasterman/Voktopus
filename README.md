@@ -12,6 +12,7 @@ Voktopus setzt auf ein 4er Kastensystem für Optimales lernen.
 
 # Profile
 Multiple Profile ermöglichen dem Anwender das arbeiten mit vielen Lehrnkästen.
+Wie z.b. ein Profil mit Mathematikkarten oder Deutschkarten.
 
 # Vielseitig
 Mit Voktopus (Daten Oktopus => herleitung Datenkrake [Nein ich sammel keine Daten]) kann man mehr 
