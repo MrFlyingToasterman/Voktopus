@@ -28,8 +28,16 @@ Wenn du das Programm nicht bearbeiten willst kannst du in dem Ordner "dist" die 
 Auf deinen Desktop ziehen und den Rest löschen.
 Es steht dir frei wo die Voktopus.jar liegt. Achte aber darauf dass du den Ordner "vdata" nicht löscht, darin
 speichert Voktopus deine Fragen.
-
 Stelle zudem Sicher dass du Java installiert hast. Mindestens das JRE 7.
 Java kannst du auf der Oracle Webseite kostenlos herunterladen.
-
 Solltest du Probleme oder Fragen haben schreib mir einfach eine Nachricht :)
+
+#Ziele
+=> Leistungsindex: Statistiken für gewusste und ungewusste karten mit Rangliste. <-- Bearbeitung
+=> Professionellerer Aufbau des Programmcodes (Modular)<br>
+=> Eine schönere GUI. <br>
+=> Einen 'Dunkel' Modus für das pauken bis tief in die Nacht. <br>
+=> Funktion: Bilder mitzuspeichern. <br>
+=> Funktion: Addons/Plugins <br>
+=> Eine Android Version. <br>
+=> Eine Sync Funktion für Mobil und Normales lernen. <br>
