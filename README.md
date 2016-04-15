@@ -28,7 +28,7 @@ Wenn du das Programm nicht bearbeiten willst kannst du in dem Ordner "dist" die 
 Auf deinen Desktop ziehen und den Rest löschen.
 Es steht dir frei wo die Voktopus.jar liegt. Achte aber darauf dass du den Ordner "vdata" nicht löscht, darin
 speichert Voktopus deine Fragen.
-Stelle zudem Sicher dass du Java installiert hast. Mindestens das JRE 7.
+Stelle zudem Sicher dass du Java installiert hast. Mindestens das JRE 8.
 Java kannst du auf der Oracle Webseite kostenlos herunterladen.
 Solltest du Probleme oder Fragen haben schreib mir einfach eine Nachricht :)
 
