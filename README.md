@@ -4,8 +4,8 @@ Ein Vokabeltrainer der mehr kann.
 ![Voktopus](/screen0.png?raw=true "Voktopus 1.0.0.0")
 
 # Pool
-Voktopus verfügt über einen Pool(auch Ablage genannt) der von dir gefüttert werden will!
-Aus dem Pool können gewünschte Karten mit beliebigen Fragen in die Lehrnkästen gezogen werden.
+Voktopus verfügt über einen Pool (auch Ablage genannt) der von dir gefüttert werden will!
+Aus dem Pool können gewünschte Karten mit beliebigen Fragen in die Lernkästen gezogen werden.
 
 # 4er Kastensystem
 Voktopus setzt auf ein 4er Kastensystem für Optimales lernen.
@@ -33,7 +33,7 @@ Java kannst du auf der Oracle Webseite kostenlos herunterladen.
 Solltest du Probleme oder Fragen haben schreib mir einfach eine Nachricht :)
 
 #Ziele
-=> Leistungsindex: Statistiken für gewusste und ungewusste karten mit Rangliste. <-- Fertig <br>
+=> Leistungsindex: Statistiken für gewusste und ungewusste karten. <-- Fertig <br>
 => Updater für automatische Updates. <-- Bearbeitung <br>
 => Professionellerer Aufbau des Programmcodes (Modular)  <br>
 => Eine schönere GUI. <br>
