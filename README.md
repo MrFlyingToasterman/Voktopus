@@ -33,8 +33,8 @@ Java kannst du auf der Oracle Webseite kostenlos herunterladen.
 Solltest du Probleme oder Fragen haben schreib mir einfach eine Nachricht :)
 
 #Ziele
-=> Leistungsindex: Statistiken für gewusste und ungewusste karten mit Rangliste. <-- Bearbeitung <br>
-=> Professionellerer Aufbau des Programmcodes (Modular)<br>
+=> Leistungsindex: Statistiken für gewusste und ungewusste karten mit Rangliste. <-- Fertig <br>
+=> Professionellerer Aufbau des Programmcodes (Modular) <-- Bearbeitung <br>
 => Eine schönere GUI. <br>
 => Einen 'Dunkel' Modus für das pauken bis tief in die Nacht. <br>
 => Funktion: Bilder mitzuspeichern. <br>
