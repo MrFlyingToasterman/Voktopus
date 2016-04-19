@@ -34,7 +34,7 @@ Solltest du Probleme oder Fragen haben schreib mir einfach eine Nachricht :)
 
 #Ziele
 => Leistungsindex: Statistiken für gewusste und ungewusste karten. <-- Fertig <br>
-=> Updater für automatische Updates. <-- Bearbeitung <br>
+=> Updater für automatische Updates. <-- In Bearbeitung <br>
 => Professionellerer Aufbau des Programmcodes (Modular)  <br>
 => Eine schönere GUI. <br>
 => Einen 'Dunkel' Modus für das pauken bis tief in die Nacht. <br>
