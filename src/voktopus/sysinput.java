@@ -293,17 +293,6 @@ public class sysinput extends javax.swing.JFrame {
         //Combowert besorgen
         ccheck = Voktopus.combocheck;
         
-        /*
-        //verzeichnis erstellen
-        File f = new File("vdata");
-        if (f.exists() && f.isDirectory()) {
-            System.out.println("Verzeichnis vdata/ bereits erstellt");
-        }else {
-            f.mkdir(); //Verzeichnis kann ohne Probleme erstellt werden
-            profil = JOptionPane.showInputDialog("Bitte geben Sie einen Namen für das Profil an: ");
-        }
-        */
-        
         //verzeichnis erstellen
         File f1 = new File("vdata/" + profil + "/pool"); //Verzeichnis kann ohne Probleme erstellt werden
         f1.mkdir();

@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Voktopus extends javax.swing.JFrame {
 
-    public static String version = "1.0.1.0";
+    public static String version = "1.0.1.3";
     public static String prio;
     public static String uberschrift;
     public static String inhalt;
@@ -30,38 +30,51 @@ public class Voktopus extends javax.swing.JFrame {
         initComponents();
         jLabel1.setText("Voktopus " + version);
         jLabel4.setText(auslese);
-        jLabel7.setText("");
         
         //verzeichnis erstellen
         File f = new File("vdata");
         if (f.exists() && f.isDirectory()) {
             System.out.println("Verzeichnis vdata/ bereits erstellt");
         }else {
+            boolean repeter0 = false;
+          do {
             profil = JOptionPane.showInputDialog("Bitte geben Sie einen Namen für das Profil an: ");
+            
+            if (profil == null) {
+                System.exit(0);
+            }
+            
+            /* if (profil.equalsIgnoreCase("devel0per")) { //Developer Modus
+                 entwicklermodus(4);
+            } */
             
             //Verhinder dass es leer oder leerzeichen ist
             if (profil.equalsIgnoreCase("") || profil.contains(" ")) {
                 JOptionPane.showMessageDialog(null, "Ein Profil darf nicht Void sein!!", "Programm Ende", JOptionPane.ERROR_MESSAGE);
-                System.exit(0);
+                continue;
             }
             
             //Verhinder |
             if (profil.contains("|")) {
                 JOptionPane.showMessageDialog(null, "Ein Profil darf kein '/' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
-                System.exit(0);
+                continue;
             }
             
             //Verhinder \
             if (profil.contains("\\")) {
                 JOptionPane.showMessageDialog(null, "Ein Profil darf kein '\\' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
-                System.exit(0);
+                continue;
             }
         
             //Verhinder "
             if (profil.contains("\"")) {
                 JOptionPane.showMessageDialog(null, "Ein Profil darf kein '\"' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
-                System.exit(0);
+                continue;
             }
+            
+            repeter0 = false;
+          } while (repeter0);                   
+        
             
             f.mkdir(); //Verzeichnis kann ohne Probleme erstellt werden
             File proff = new File ("vdata/" + profil);           
@@ -96,7 +109,7 @@ public class Voktopus extends javax.swing.JFrame {
         try {
             FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
             BufferedReader br = new BufferedReader(fr);
-            leistungsindex = "Leistungsindex: " + br.readLine();
+            leistungsindex = br.readLine();
             br.close();
         } catch (Exception e) {
         }
@@ -124,6 +137,7 @@ public class Voktopus extends javax.swing.JFrame {
 			e.printStackTrace();
 		}
             JOptionPane.showMessageDialog(null, "Erfolg!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            profild();
             return;
         }
          //Letztes Profil Lesen
@@ -160,7 +174,7 @@ public class Voktopus extends javax.swing.JFrame {
             br.close();
         } catch (Exception e) {
         }
-        jLabel7.setText("Leistungsindex: " + leistungsindex);
+        profild();
     }
     
     public static void profild() {
@@ -465,7 +479,7 @@ public class Voktopus extends javax.swing.JFrame {
         char iks = 'x';
         boolean janein = true;
         
-            for(int i = 0;  i < leistungsindex.length(); i++) {
+            for(int i = 0;  i < leistungsindex.length(); i++) { 
                 System.out.println(i + " => " + leistungsindex.charAt(i));
                 if (iks == leistungsindex.charAt(i)) {
                     janein = false;
@@ -476,7 +490,7 @@ public class Voktopus extends javax.swing.JFrame {
                 }else{
                     nein = nein + leistungsindex.charAt(i);
                 }
-            }
+            } 
              int jaint = Integer.parseInt(ja);
                 jaint++;
                 
@@ -780,6 +794,36 @@ public class Voktopus extends javax.swing.JFrame {
             System.out.println("Lösungsbutton Aus\t=> Output from losungscheck");
             System.out.println("--------------------------");
         }
+    }
+    
+    public static void entwicklermodus(int x) {
+        
+        for(int i = 0; i < 4; i++) {
+        //Speichern
+        try {
+
+			String content = i + "\n" + "test" + i + "\n" + "inhalt" + i + "\n" + "lösung" + i;
+
+			File file = new File("vdata/" + profil + "/" + "pool" + "/" + "test" + i + ".vpus");
+
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(content);
+			bw.close();
+
+			System.out.println("Done \t=> Output from FileWriter\n");
+                        JOptionPane.showMessageDialog(null, "Sie sind nun Entwickler", "Information", JOptionPane.INFORMATION_MESSAGE);
+                        
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        }
+        
     }
     
     public static void main(String args[]) {

@@ -148,8 +148,13 @@ public class sysprofile extends javax.swing.JFrame {
         // Neues Profil
         String nprofil = JOptionPane.showInputDialog("Bitte geben Sie einen Namen für das Profil an: ");
         
+        if (nprofil == null) {
+            System.out.println("NullPointerExeption gefangen");
+            return;
+        }
+        
         //Verhinder dass es leer oder leerzeichen ist
-        if (nprofil.equalsIgnoreCase("") || nprofil.contains(" ")) {
+        if (nprofil.contains(" ")) {
             JOptionPane.showMessageDialog(null, "Ein Profil darf nicht Void sein!!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
