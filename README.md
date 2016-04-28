@@ -34,11 +34,10 @@ Solltest du Probleme oder Fragen haben schreib mir einfach eine Nachricht :)
 
 #Ziele
 => Leistungsindex: Statistiken für gewusste und ungewusste karten. <-- Fertig <br>
-=> Updater für automatische Updates. <-- In Bearbeitung <br>
 => Professionellerer Aufbau des Programmcodes (Modular)  <br>
 => Eine schönere GUI. <br>
 => Einen 'Dunkel' Modus für das pauken bis tief in die Nacht. <br>
 => Funktion: Bilder mitzuspeichern. <br>
 => Funktion: Addons/Plugins <br>
-=> Eine Android Version. <br>
-=> Eine Sync Funktion für Mobil und Normales lernen. <br>
+<br>
+Fürs erste auf Eis gelegt..
