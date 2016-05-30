@@ -8,7 +8,10 @@ Voktopus verfügt über einen Pool (auch Ablage genannt) der von dir gefüttert 
 Aus dem Pool können gewünschte Karten mit beliebigen Fragen in die Lernkästen gezogen werden.
 
 # 4er Kastensystem
-Voktopus setzt auf ein 4er Kastensystem für Optimales lernen.
+Voktopus verfügt über 4 Karteikästen. Wenn Sie eine Frage beantworten konnten bewegt Sie sich <br>
+einen Kasten nach oben. Andernfalls nach unten.<br>
+Kasten 1 | Kasten 2 | Kasten 3 | Kasten 4 <br>
+|____________^<br>
 
 # Profile
 Multiple Profile ermöglichen dem Anwender das arbeiten mit vielen Lehrnkästen.
@@ -22,6 +25,9 @@ nach unserem bewährten Prinzip abfragen
 # Frei
 Fühle dich Frei meine Software zu verwenden, zu verbessern oder sonst irgendwas damit zu tun.
 
+#Kompatibelität
+Voktopus wurde für GNU/Linux konzipiert läuft aber auch auf MacOS und Windoof.
+
 # Instalation bzw Anleitung
 Lade dir die Voktopus-Version-Master.zip herunter und entpacke sie.
 Wenn du das Programm nicht bearbeiten willst kannst du in dem Ordner "dist" die Voktopus.jar
@@ -34,10 +40,8 @@ Solltest du Probleme oder Fragen haben schreib mir einfach eine Nachricht :)
 
 #Ziele
 => Leistungsindex: Statistiken für gewusste und ungewusste karten. <-- Fertig <br>
-=> Professionellerer Aufbau des Programmcodes (Modular)  <br>
 => Eine schönere GUI. <br>
 => Einen 'Dunkel' Modus für das pauken bis tief in die Nacht. <br>
 => Funktion: Bilder mitzuspeichern. <br>
-=> Funktion: Addons/Plugins <br>
 <br>
-Fürs erste auf Eis gelegt..
+=> [Dauerauftrag] optimirung des Programmcodes. (Da ich immer besser in Java werde und viel lernen konnte werde ich versuchen stück für stück den Programmcode zu verbessern)
