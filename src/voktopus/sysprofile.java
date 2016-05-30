@@ -21,6 +21,11 @@ public class sysprofile extends javax.swing.JFrame {
     public sysprofile() {
         initComponents();
         profscan();
+        setwindowname("Mommentan ausgewähltes Profil: " + profil);
+    }
+    
+    public void setwindowname(String name) {
+        this.setTitle(name);
     }
     
     public static void profscan() {
@@ -210,6 +215,7 @@ public class sysprofile extends javax.swing.JFrame {
 			e.printStackTrace();
 		}
         profscan(); //neue Profile suchen
+        setwindowname("Mommentan ausgewähltes Profil: " + profil); //namen anpassen
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -254,7 +260,7 @@ public class sysprofile extends javax.swing.JFrame {
         sysinit.scan();
         Voktopus.profild();
         
-        
+        setwindowname("Mommentan ausgewähltes Profil: " + profil); //namen anpassen
         JOptionPane.showMessageDialog(null, profil + " wurde erfolgreich geladen!", "Erfolgreich!", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -302,6 +308,7 @@ public class sysprofile extends javax.swing.JFrame {
         Voktopus.leistungslesen();
         //reload
         profscan(); //neue Profile suchen
+        setwindowname("Mommentan ausgewähltes Profil: " + profil); //namen anpassen
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -330,6 +337,7 @@ public class sysprofile extends javax.swing.JFrame {
         Voktopus.leistungslesen();
         //reload
         profscan(); //neue Profile suchen
+        setwindowname("Mommentan ausgewähltes Profil: " + profil); //namen anpassen
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {

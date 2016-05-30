@@ -1,7 +1,7 @@
 # Voktopus
 Ein Vokabeltrainer der mehr kann. 
 
-![Voktopus](/screen0.png?raw=true "Voktopus 1.0.0.0")
+![Voktopus](/screen1.png?raw=true "Voktopus 1.0.0.0")
 
 # Pool
 Voktopus verfügt über einen Pool (auch Ablage genannt) der von dir gefüttert werden will!

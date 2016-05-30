@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Voktopus extends javax.swing.JFrame {
 
-    public static String version = "1.0.1.3";
+    public static String version = "1.1.0.1 (testing)";
     public static String prio;
     public static String uberschrift;
     public static String inhalt;
@@ -31,6 +31,14 @@ public class Voktopus extends javax.swing.JFrame {
         jLabel1.setText("Voktopus " + version);
         jLabel4.setText(auslese);
         
+        if (version.contains("testing")) {
+            JOptionPane.showMessageDialog(null, "Danke dass Sie eine >Testing< Version verwenden!\n"
+                    + "Sie helfen mir damit das Programm zu verbessern!\n"
+                    + "Aber vergessen Sie nicht dass diese Version unausgereift ist und fehler enthalten kann!\n"
+                    + "Bitte Melden Sie (sofern Sie wünschen) alle Fehler die Sie finden an MrFlyingToasterman@yahoo.de\n\n"
+                    + "Viel erfolg beim lernen! ~Der Entwickler", "Vielen Dank!", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
         //verzeichnis erstellen
         File f = new File("vdata");
         if (f.exists() && f.isDirectory()) {
@@ -43,10 +51,6 @@ public class Voktopus extends javax.swing.JFrame {
             if (profil == null) {
                 System.exit(0);
             }
-            
-            /* if (profil.equalsIgnoreCase("devel0per")) { //Developer Modus
-                 entwicklermodus(4);
-            } */
             
             //Verhinder dass es leer oder leerzeichen ist
             if (profil.equalsIgnoreCase("") || profil.contains(" ")) {
@@ -187,6 +191,7 @@ public class Voktopus extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -207,6 +212,8 @@ public class Voktopus extends javax.swing.JFrame {
         setTitle("Voktopus");
         setLocation(new java.awt.Point(200, 100));
 
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+
         jLabel1.setForeground(new java.awt.Color(137, 137, 137));
         jLabel1.setText("jLabel1");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -225,6 +232,7 @@ public class Voktopus extends javax.swing.JFrame {
         jTextArea1.setEnabled(false);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Ich wusste es nicht");
         jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -233,6 +241,7 @@ public class Voktopus extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setText("Ich wusste es");
         jButton2.setEnabled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -241,6 +250,7 @@ public class Voktopus extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setText("Start");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,15 +258,20 @@ public class Voktopus extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setBackground(new java.awt.Color(51, 51, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pool", "Erster Kasten", "Zweiter Kasten", "Dritter Kasten", "Vierter Kasten"}));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("vokabelkasten:");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Mommentane Datenbankanbindung:");
 
-        jLabel4.setForeground(new java.awt.Color(55, 52, 228));
+        jLabel4.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setText("jLabel4");
 
+        jButton5.setBackground(new java.awt.Color(51, 51, 51));
         jButton5.setText("Lösung");
         jButton5.setEnabled(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -265,6 +280,7 @@ public class Voktopus extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setBackground(new java.awt.Color(51, 51, 51));
         jButton6.setText("Einstellungen");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,24 +288,26 @@ public class Voktopus extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Profil:");
 
         jLabel6.setFont(new java.awt.Font("Cantarell", 3, 15)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(62, 64, 207));
+        jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setText("Profilname / jlabel6");
         jLabel6.setToolTipText("");
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Leitungsindex: ");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
@@ -305,10 +323,10 @@ public class Voktopus extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton6)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)
@@ -318,13 +336,13 @@ public class Voktopus extends javax.swing.JFrame {
                         .addComponent(jLabel4)))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
@@ -336,7 +354,7 @@ public class Voktopus extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
@@ -344,25 +362,234 @@ public class Voktopus extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        //Datenbanken Bearbeiten
-        combocheck = jComboBox1.getSelectedIndex();
-        sysinit.main(args);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        JOptionPane.showMessageDialog(null, "Voktopus " + version + " by Darius Musiolik 2k16"
+            + "\nWebseite: https://github.com/MrFlyingToasterman/Voktopus", "Über", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        //Lösung
-        jTextArea1.setText(jTextArea1.getText() + "\n-------------------------------------------------------------\n" + losung);
-        jButton5.setEnabled(false);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Ich wusste es nicht button
+        //Konsolen Output
+        System.out.println("--------------------------");
+        System.out.println("'Ich wusste es nicht' => Button Click");
+        System.out.println("--------------------------");
 
-        //System.out.println für Konsolen Log + Debuging
+        //Lösungsbutton Aktiviren
+        jButton5.setEnabled(true);
+
+        //Abgleich wegen Negativen zahlen
+        switch (untersuchung) {
+            case 1:
+            //Nichts Unternemen
+            break;
+            case 0:
+            //Nichts Unternemen
+            break;
+            default:
+            untersuchung = 1;
+            break;
+        }
+        //Speichern
+        try {
+
+            String content = untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
+
+            File file = new File("vdata/" + profil + "/" + ordner + "/" + uberschrift + ".vpus");
+
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
+
+            System.out.println("Done \t=> Output from FileWriter\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Leistungsindex lesen
+        try {
+            FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
+            BufferedReader br = new BufferedReader(fr);
+            leistungsindex = br.readLine();
+            br.close();
+        } catch (Exception e) {
+        }
+
+        //Leistungsindex Anpassen
+        String ja = "";
+        String nein = "";
+        char iks = 'x';
+        boolean janein = true;
+
+        for(int i = 0;  i < leistungsindex.length(); i++) {
+            System.out.println(i + " => " + leistungsindex.charAt(i));
+            if (iks == leistungsindex.charAt(i)) {
+                janein = false;
+                continue;
+            }
+            if (janein == true) {
+                ja = ja + leistungsindex.charAt(i);
+            }else{
+                nein = nein + leistungsindex.charAt(i);
+            }
+        }
+        int neinint = Integer.parseInt(nein);
+        neinint++;
+
+        System.out.println(ja + " << " + neinint + " << " + nein);
+
+        leistungsindex = ja + "x" + neinint;
+        //Leistungsindex abspeichern
+        try {
+
+            String content = leistungsindex;
+
+            File file = new File("vdata/" + profil + ".xvpus");
+
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
+
+            System.out.println("Done \t=> Output from FileWriter\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        run();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Konsolen Output
         System.out.println("--------------------------");
-        System.out.println("Lösungsbutton Click");
+        System.out.println("'Ich wusste es' => Button Click");
         System.out.println("--------------------------");
-    }//GEN-LAST:event_jButton5ActionPerformed
+
+        //Lösungsbutton Aktiviren
+        jButton5.setEnabled(true);
+
+        //Neue Hirachie 0 = Pool 1 -4 = Kästen
+
+        //Abgleich wegen Negativen zahlen
+        switch (untersuchung) {
+            case 4:
+            //Nichts Unternemen
+            break;
+            case 0:
+            //Nichts Unternemen
+            break;
+            default:
+            untersuchung++;
+            break;
+        }
+
+        //Speichern
+        try {
+
+            String content = untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
+
+            File file = new File("vdata/" + profil + "/" + ordner + "/" + uberschrift + ".vpus");
+
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
+
+            System.out.println("Done \t=> Output from FileWriter\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Leistungsindex lesen
+        try {
+            FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
+            BufferedReader br = new BufferedReader(fr);
+            leistungsindex = br.readLine();
+            br.close();
+        } catch (Exception e) {
+        }
+
+        //Leistungsindex Anpassen
+        String ja = "";
+        String nein = "";
+        char iks = 'x';
+        boolean janein = true;
+
+        for(int i = 0;  i < leistungsindex.length(); i++) {
+            System.out.println(i + " => " + leistungsindex.charAt(i));
+            if (iks == leistungsindex.charAt(i)) {
+                janein = false;
+                continue;
+            }
+            if (janein == true) {
+                ja = ja + leistungsindex.charAt(i);
+            }else{
+                nein = nein + leistungsindex.charAt(i);
+            }
+        }
+        int jaint = Integer.parseInt(ja);
+        jaint++;
+
+        System.out.println(ja + " << " + jaint + " << " + nein);
+
+        leistungsindex = jaint + "x" + nein;
+        //Leistungsindex abspeichern
+        try {
+
+            String content = leistungsindex;
+
+            File file = new File("vdata/" + profil + ".xvpus");
+
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
+
+            System.out.println("Done \t=> Output from FileWriter\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        run();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
@@ -414,223 +641,24 @@ public class Voktopus extends javax.swing.JFrame {
 
             jLabel4.setText("keine");
         }
-
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //Konsolen Output
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //Lösung
+        jTextArea1.setText(jTextArea1.getText() + "\n-------------------------------------------------------------\n" + losung);
+        jButton5.setEnabled(false);
+
+        //System.out.println für Konsolen Log + Debuging
         System.out.println("--------------------------");
-        System.out.println("'Ich wusste es' => Button Click");
+        System.out.println("Lösungsbutton Click");
         System.out.println("--------------------------");
+    }//GEN-LAST:event_jButton5ActionPerformed
 
-        //Lösungsbutton Aktiviren
-        jButton5.setEnabled(true);
-
-        //Neue Hirachie 0 = Pool 1 -4 = Kästen
-
-        //Abgleich wegen Negativen zahlen
-        switch (untersuchung) {
-            case 4:
-            //Nichts Unternemen
-            break;
-            case 0:
-            //Nichts Unternemen
-            break;
-            default:
-            untersuchung++;
-            break;
-        }
-
-        //Speichern
-        try {
-
-            String content = untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
-
-            File file = new File("vdata/" + profil + "/" + ordner + "/" + uberschrift + ".vpus");
-
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-
-            System.out.println("Done \t=> Output from FileWriter\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        //Leistungsindex lesen
-            try {
-            FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
-            BufferedReader br = new BufferedReader(fr);
-            leistungsindex = br.readLine();
-            br.close();
-        } catch (Exception e) {
-        }
-        
-        //Leistungsindex Anpassen
-        String ja = "";
-        String nein = "";
-        char iks = 'x';
-        boolean janein = true;
-        
-            for(int i = 0;  i < leistungsindex.length(); i++) { 
-                System.out.println(i + " => " + leistungsindex.charAt(i));
-                if (iks == leistungsindex.charAt(i)) {
-                    janein = false;
-                    continue;
-                }
-                if (janein == true) {
-                    ja = ja + leistungsindex.charAt(i);
-                }else{
-                    nein = nein + leistungsindex.charAt(i);
-                }
-            } 
-             int jaint = Integer.parseInt(ja);
-                jaint++;
-                
-                System.out.println(ja + " << " + jaint + " << " + nein);
-                
-                leistungsindex = jaint + "x" + nein;
-        //Leistungsindex abspeichern
-        try {
-
-            String content = leistungsindex;
-
-            File file = new File("vdata/" + profil + ".xvpus");
-
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-
-            System.out.println("Done \t=> Output from FileWriter\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        run();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Ich wusste es nicht button
-        //Konsolen Output
-        System.out.println("--------------------------");
-        System.out.println("'Ich wusste es nicht' => Button Click");
-        System.out.println("--------------------------");
-
-        //Lösungsbutton Aktiviren
-        jButton5.setEnabled(true);
-
-        //Abgleich wegen Negativen zahlen
-        switch (untersuchung) {
-            case 1:
-            //Nichts Unternemen
-            break;
-            case 0:
-            //Nichts Unternemen
-            break;
-            default:
-            untersuchung = 1;
-            break;
-        }
-        //Speichern
-        try {
-
-            String content = untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
-
-            File file = new File("vdata/" + profil + "/" + ordner + "/" + uberschrift + ".vpus");
-
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-
-            System.out.println("Done \t=> Output from FileWriter\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        //Leistungsindex lesen
-            try {
-            FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
-            BufferedReader br = new BufferedReader(fr);
-            leistungsindex = br.readLine();
-            br.close();
-        } catch (Exception e) {
-        }
-        
-        //Leistungsindex Anpassen
-        String ja = "";
-        String nein = "";
-        char iks = 'x';
-        boolean janein = true;
-        
-            for(int i = 0;  i < leistungsindex.length(); i++) {
-                System.out.println(i + " => " + leistungsindex.charAt(i));
-                if (iks == leistungsindex.charAt(i)) {
-                    janein = false;
-                    continue;
-                }
-                if (janein == true) {
-                    ja = ja + leistungsindex.charAt(i);
-                }else{
-                    nein = nein + leistungsindex.charAt(i);
-                }
-            }
-             int neinint = Integer.parseInt(nein);
-                neinint++;
-                
-                System.out.println(ja + " << " + neinint + " << " + nein);
-                
-                leistungsindex = ja + "x" + neinint;
-        //Leistungsindex abspeichern
-        try {
-
-            String content = leistungsindex;
-
-            File file = new File("vdata/" + profil + ".xvpus");
-
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-
-            System.out.println("Done \t=> Output from FileWriter\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        run();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        JOptionPane.showMessageDialog(null, "Voktopus " + version + " by Darius Musiolik 2k16"
-            + "\nWebseite: https://github.com/MrFlyingToasterman/Voktopus", "Über", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        //Datenbanken Bearbeiten
+        combocheck = jComboBox1.getSelectedIndex();
+        sysinit.main(args);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     public void run() {
         profild();
@@ -796,35 +824,6 @@ public class Voktopus extends javax.swing.JFrame {
         }
     }
     
-    public static void entwicklermodus(int x) {
-        
-        for(int i = 0; i < 4; i++) {
-        //Speichern
-        try {
-
-			String content = i + "\n" + "test" + i + "\n" + "inhalt" + i + "\n" + "lösung" + i;
-
-			File file = new File("vdata/" + profil + "/" + "pool" + "/" + "test" + i + ".vpus");
-
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
-
-			System.out.println("Done \t=> Output from FileWriter\n");
-                        JOptionPane.showMessageDialog(null, "Sie sind nun Entwickler", "Information", JOptionPane.INFORMATION_MESSAGE);
-                        
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        }
-        
-    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -872,6 +871,7 @@ public class Voktopus extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
     public static javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
