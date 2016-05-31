@@ -11,7 +11,6 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 import static voktopus.Voktopus.profil;
-import static voktopus.Voktopus.uberschrift;
 
 /**
  *

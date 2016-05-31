@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Voktopus extends javax.swing.JFrame {
 
-    public static String version = "1.1.0.1 (testing)";
+    public static String version = "1.1.0.2 (testing)";
     public static String prio;
     public static String uberschrift;
     public static String inhalt;
@@ -23,6 +23,8 @@ public class Voktopus extends javax.swing.JFrame {
     public static String ordner;
     public static String profil;
     public static String leistungsindex;
+    
+    vphelper vh = new vphelper(); //oop
     
     private String[] args;
     
@@ -86,28 +88,7 @@ public class Voktopus extends javax.swing.JFrame {
             jLabel6.setText(profil);
             
             //Leistungsindex erstellen
-        try {
-
-			String content = "0x0";
-
-			File file = new File("vdata/" + profil + ".xvpus");
-
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
-
-			System.out.println("Done -" + profil + "xvpus\t=> Output from FileWriter\n");
-                        
-                        
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+            vh.xwrite(profil, "vdata/", "0x0");
         
         //Letzten Leistungsindex Lesen
         try {
@@ -404,27 +385,7 @@ public class Voktopus extends javax.swing.JFrame {
             break;
         }
         //Speichern
-        try {
-
-            String content = untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
-
-            File file = new File("vdata/" + profil + "/" + ordner + "/" + uberschrift + ".vpus");
-
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-
-            System.out.println("Done \t=> Output from FileWriter\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        vh.write(profil + "/" + ordner + "/" + uberschrift, "vdata/", untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung);
 
         //Leistungsindex lesen
         try {
