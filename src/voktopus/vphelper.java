@@ -4,12 +4,26 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Darius Musiolik
  */
 public class vphelper {
+    
+    public void alert_err(String content, String kopf) {
+        JOptionPane.showMessageDialog(null, content, kopf, JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public void alert_info(String content, String kopf) {
+        JOptionPane.showMessageDialog(null, content, kopf, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+     public String alert_input(String frage) {
+         return JOptionPane.showInputDialog(frage);
+     }
+    
     public void write(String file, String localation, String content) {
         
         try {

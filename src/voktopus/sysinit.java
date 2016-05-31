@@ -204,6 +204,7 @@ public class sysinit extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
@@ -236,6 +237,8 @@ public class sysinit extends javax.swing.JFrame {
         setLocation(new java.awt.Point(300, 200));
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Noch keine Datenbanken!"};
             public int getSize() { return strings.length; }
@@ -243,6 +246,7 @@ public class sysinit extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setText("Löschen");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,23 +254,29 @@ public class sysinit extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Karteikasten:");
 
+        jComboBox1.setBackground(new java.awt.Color(51, 51, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pool", "Erster Kasten", "Zweiter Kasten", "Dritter Kasten", "Vierter Kasten" }));
         jComboBox1.setEnabled(false);
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Überschrift:");
 
         jTextField1.setEnabled(false);
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Frage:");
 
         jTextField2.setEnabled(false);
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Lösung:");
 
         jTextField3.setEnabled(false);
 
+        jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setText("Bearbeiten");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,6 +284,7 @@ public class sysinit extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setText("Neu");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,6 +292,7 @@ public class sysinit extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(51, 51, 51));
         jButton4.setText("Speichern");
         jButton4.setEnabled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -289,6 +301,7 @@ public class sysinit extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(51, 51, 51));
         jButton5.setText("Suche");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -304,6 +317,7 @@ public class sysinit extends javax.swing.JFrame {
         jList2.setEnabled(false);
         jScrollPane2.setViewportView(jList2);
 
+        jButton6.setBackground(new java.awt.Color(51, 51, 51));
         jButton6.setText("=>");
         jButton6.setEnabled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -312,6 +326,7 @@ public class sysinit extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setBackground(new java.awt.Color(51, 51, 51));
         jButton7.setText("<=");
         jButton7.setEnabled(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -321,13 +336,14 @@ public class sysinit extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Cantarell", 3, 15)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(62, 64, 207));
+        jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setText("Datenbanken im Karteisystem");
 
         jLabel7.setFont(new java.awt.Font("Cantarell", 3, 15)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(62, 64, 207));
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("Datenbanken im Pool");
 
+        jButton8.setBackground(new java.awt.Color(51, 51, 51));
         jButton8.setText("Pool");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,6 +351,7 @@ public class sysinit extends javax.swing.JFrame {
             }
         });
 
+        jButton9.setBackground(new java.awt.Color(51, 51, 51));
         jButton9.setText("Profile");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -342,6 +359,7 @@ public class sysinit extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setBackground(new java.awt.Color(51, 51, 51));
         jButton10.setText("OK");
         jButton10.setEnabled(false);
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -351,11 +369,13 @@ public class sysinit extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Cantarell", 3, 15)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(62, 64, 207));
+        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("jLabel5");
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Profil:");
 
+        jButton11.setBackground(new java.awt.Color(51, 51, 51));
         jButton11.setText("Erweiterte Einstellungen");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -363,40 +383,40 @@ public class sysinit extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
                         .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextField3)
                             .addComponent(jTextField1)))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)
@@ -414,7 +434,7 @@ public class sysinit extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -422,11 +442,11 @@ public class sysinit extends javax.swing.JFrame {
                         .addComponent(jButton4)))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3)
                     .addComponent(jButton2)
@@ -437,13 +457,13 @@ public class sysinit extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jButton11))
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(jButton10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -452,82 +472,79 @@ public class sysinit extends javax.swing.JFrame {
                         .addComponent(jButton7)
                         .addGap(0, 98, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // Neu
-        sysinput.main(args);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    public static void markin() {
-        mark = jList1.getSelectedValue();
-    }
-    
-    public static void markin2() {
-        mark2 = jList2.getSelectedValue();
-    }
-    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Löschen Funktion
-        
+
         //Einlesen der markierung
         markin();
-        
-         //Wenn man Löschen drückt obwohl nichts ausgewählt ist
+
+        //Wenn man Löschen drückt obwohl nichts ausgewählt ist
         if (jList1.getSelectedValue() == null) {
-             JOptionPane.showMessageDialog(null, "Bitte wählen Sie zuerst eine Datenbank aus!", "Void!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Bitte wählen Sie zuerst eine Datenbank aus!", "Void!", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Sicherheitsfrage "Sind Sie sicher dass Sie NAME Löschen wollen ?"
         int reply = JOptionPane.showConfirmDialog(null, "Sind Sie sicher dass Sie " + mark + " löschen wollen ?", "Bestätigen", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
             System.out.println("Löschen vom User bestätigt!");
         }
         else {
-           JOptionPane.showMessageDialog(null, "Abgebrochen!");
-           return;
+            JOptionPane.showMessageDialog(null, "Abgebrochen!");
+            return;
         }
-        
+
         //Löschen der gewählten Datei
         try{
-    		
-    		File file = new File("vdata/" + profil + "/pool/" + mark);
-        	
-    		if(file.delete()){
-    			System.out.println(file.getName() + " is deleted!");
-    		}else{
-    			System.out.println("Delete operation is failed.");
-    		}
-    	   
-    	}catch(Exception e){}
-        
-        
+
+            File file = new File("vdata/" + profil + "/pool/" + mark);
+
+            if(file.delete()){
+                System.out.println(file.getName() + " is deleted!");
+            }else{
+                System.out.println("Delete operation is failed.");
+            }
+
+        }catch(Exception e){}
+
         //reload
         scan();
         poolscan();
@@ -535,15 +552,15 @@ public class sysinit extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Bearbeiten von Datenbanken
-        
+
         //Wenn man Bearbeiten drückt obwohl nichts ausgewählt ist
         if (jList1.getSelectedValue() == null) {
-             JOptionPane.showMessageDialog(null, "Bitte wählen Sie zuerst eine Datenbank aus!", "Void!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Bitte wählen Sie zuerst eine Datenbank aus!", "Void!", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         markin();
-        
+
         try {
             FileReader fr = new FileReader("vdata/" + profil + "/pool/" + mark);
             BufferedReader br = new BufferedReader(fr);
@@ -555,25 +572,25 @@ public class sysinit extends javax.swing.JFrame {
             br.close();
         } catch (Exception e) {
         }
-        
+
         //Priorität anzeigen
-                //System.out.println(prio);
+        //System.out.println(prio);
         prio = prio -48;
         jComboBox1.setSelectedIndex(prio);
         jComboBox1.setEnabled(true);
-        
+
         //Überschrift anzeigen
         jTextField1.setText(uberschrift);
         jTextField1.setEnabled(true);
-        
+
         //Inhalt anzeigen
         jTextField2.setText(inhalt);
         jTextField2.setEnabled(true);
-        
+
         //Lösung anzeigen
         jTextField3.setText(losung);
         jTextField3.setEnabled(true);
-        
+
         //Buttonrechte
         jButton4.setEnabled(true); //Speichernbutton
         jButton1.setEnabled(false); //Löschen Button
@@ -583,85 +600,88 @@ public class sysinit extends javax.swing.JFrame {
         jButton8.setEnabled(false); //Pool Button
         jButton9.setEnabled(false); //Profile button
         jList1.setEnabled(false); //Liste deaktiviren
-        
+
         System.out.println("Sysinit => read ready.");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // Neu
+        sysinput.main(args);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Speichern Button
-        
+
         //Überschrift prüfen
         if (uberschrift.equals("")) {
             JOptionPane.showMessageDialog(null, "Datenbank0 kann nicht Void sein!", "Datenbanken Fehler", JOptionPane.ERROR_MESSAGE);
             JOptionPane.showMessageDialog(null, "Überschrift Prüfen!", "Datenbank0 Void", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        
+
         prio = jComboBox1.getSelectedIndex();
         uberschrift = jTextField1.getText();
         inhalt = jTextField2.getText();
         losung = jTextField3.getText();
-        
+
         //Löschen der alten Datei
         try{
-    		
-    		File file = new File("vdata/" + profil + "/pool/" + mark);
-        	
-    		if(file.delete()){
-    			System.out.println("\n" + file.getName() + " is deleted!");
-    		}else{
-    			System.out.println("Delete operation is failed.");
-    		}
-    	   
-    	}catch(Exception e){}
-        
+
+            File file = new File("vdata/" + profil + "/pool/" + mark);
+
+            if(file.delete()){
+                System.out.println("\n" + file.getName() + " is deleted!");
+            }else{
+                System.out.println("Delete operation is failed.");
+            }
+
+        }catch(Exception e){}
+
         //Speichern
         try {
 
-			String content = prio + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
+            String content = prio + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
 
-			File file = new File("vdata/" + profil + "/pool/" + uberschrift + ".vpus");
+            File file = new File("vdata/" + profil + "/pool/" + uberschrift + ".vpus");
 
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
 
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
 
-                        
-                        //Buttonrechte
-                        jButton4.setEnabled(false); //Speichernbutton
-                        jButton1.setEnabled(true); //Löschen Button
-                        jButton2.setEnabled(true); //Bearbeiten Button
-                        jButton3.setEnabled(true); //Neu Button
-                        jButton5.setEnabled(true); //Suchen Button
-                        jList1.setEnabled(true); //Liste aktiviren
-                        jButton8.setEnabled(true); //Pool Button
-                        jButton9.setEnabled(true); //Profil Button
-        
-                        jComboBox1.setEnabled(false);
-                        jTextField1.setEnabled(false);
-                        jTextField2.setEnabled(false);
-                        jTextField3.setEnabled(false);
-			System.out.println("Done \t=> Output from FileWriter\n");
-                        JOptionPane.showMessageDialog(null, "Erfolgreich!", "Information", JOptionPane.INFORMATION_MESSAGE);
-                        
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        
-                        jComboBox1.setSelectedIndex(0);
-                        jTextField1.setText("");
-                        jTextField2.setText("");
-                        jTextField3.setText("");
-        
+            //Buttonrechte
+            jButton4.setEnabled(false); //Speichernbutton
+            jButton1.setEnabled(true); //Löschen Button
+            jButton2.setEnabled(true); //Bearbeiten Button
+            jButton3.setEnabled(true); //Neu Button
+            jButton5.setEnabled(true); //Suchen Button
+            jList1.setEnabled(true); //Liste aktiviren
+            jButton8.setEnabled(true); //Pool Button
+            jButton9.setEnabled(true); //Profil Button
+
+            jComboBox1.setEnabled(false);
+            jTextField1.setEnabled(false);
+            jTextField2.setEnabled(false);
+            jTextField3.setEnabled(false);
+            System.out.println("Done \t=> Output from FileWriter\n");
+            JOptionPane.showMessageDialog(null, "Erfolgreich!", "Information", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        jComboBox1.setSelectedIndex(0);
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+
         System.out.println("Sysinit => write ready.");
-        
-        
+
         poolscan();
         scan();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -669,45 +689,26 @@ public class sysinit extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // Suchen Funktion
         suchwert= JOptionPane.showInputDialog("Suche: ");
-        
+
         int start = 0;
         int suche = jList1.getNextMatch(suchwert, start, javax.swing.text.Position.Bias.Forward);
-        
+
         if (suche == -1) {
             JOptionPane.showMessageDialog(null, "Keine Treffer!", "Achtung!", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         jList1.setSelectedIndex(suche);
         System.out.println("Suchwert = " + suche);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // Pool Button
-        poolscan();
-        scan();
-        //Buttonrechte
-        jButton1.setEnabled(false); //Löschen Button
-        jButton2.setEnabled(false); //Bearbeiten Button
-        jButton3.setEnabled(false); //Neu Button
-        jButton5.setEnabled(false); //Suchen Button
-        jButton8.setEnabled(false); //Poolbutton
-        jButton9.setEnabled(false); //Profil Button
-        
-        jButton6.setEnabled(true); //In Kasten schieben Button
-        jButton7.setEnabled(true); //In Pool schieben Button
-        jButton10.setEnabled(true); //Bestätigungsbutton
-        jList2.setEnabled(true); //JList Freigeben
-        
-    }//GEN-LAST:event_jButton8ActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // Aus pool nach kasten
         markin();
-        
+
         if (mark == null) {
             return;
         }
-        
+
         //Den ganzen Spaß in den Arbeitsspeicher laden
         try {
             FileReader fr = new FileReader("vdata/" + profil + "/pool/" + mark);
@@ -720,70 +721,54 @@ public class sysinit extends javax.swing.JFrame {
             br.close();
         } catch (Exception e) {
         }
-        
+
         //Löschen der alten Datei
         try{
-    		
-    		File file = new File("vdata/" + profil + "/pool/" + mark);
-        	
-    		if(file.delete()){
-    			System.out.println("\n" + file.getName() + " is deleted!");
-    		}else{
-    			System.out.println("Delete operation is failed.");
-    		}
-    	   
-    	}catch(Exception e){}
-        
+
+            File file = new File("vdata/" + profil + "/pool/" + mark);
+
+            if(file.delete()){
+                System.out.println("\n" + file.getName() + " is deleted!");
+            }else{
+                System.out.println("Delete operation is failed.");
+            }
+
+        }catch(Exception e){}
+
         //Speichern
         try {
 
-			String content = "1" + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
+            String content = "1" + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
 
-			File file = new File("vdata/" + profil + "/pool/" + mark);
+            File file = new File("vdata/" + profil + "/pool/" + mark);
 
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
 
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
 
-			System.out.println("Done \t=> Output from FileWriter\n");
-                        
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+            System.out.println("Done \t=> Output from FileWriter\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         poolscan();
         scan();
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // bestätigung von Pooländerung
-        
-        //Buttonrechte
-        jButton1.setEnabled(true); //Löschen Button
-        jButton2.setEnabled(true); //Bearbeiten Button
-        jButton3.setEnabled(true); //Neu Button
-        jButton5.setEnabled(true); //Suchen Button
-        jButton6.setEnabled(false); //In Kasten schieben Button
-        jButton7.setEnabled(false); //In Pool schieben Button
-        jButton8.setEnabled(true); //Pool Button
-        jButton9.setEnabled(true); //Profil Button
-        jButton10.setEnabled(false); //Bestätigen Button
-        jList2.setEnabled(false); //JList wieder Sperren
-    }//GEN-LAST:event_jButton10ActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // Von Kasten nach Pool
         markin2();
-        
+
         if (mark2 == null) {
             return;
         }
-        
+
         //Den ganzen Spaß in den Arbeitsspeicher laden
         try {
             FileReader fr = new FileReader("vdata/" + profil + "/kasten/" + mark2);
@@ -798,57 +783,98 @@ public class sysinit extends javax.swing.JFrame {
         }
         //Löschen der alten Datei
         try{
-    		
-    		File file = new File("vdata/" + profil + "/kasten/" + mark2);
-        	
-    		if(file.delete()){
-    			System.out.println("\n" + file.getName() + " is deleted!");
-    		}else{
-    			System.out.println("Delete operation is failed.");
-    		}
-    	   
-    	}catch(Exception e){}
-        
+
+            File file = new File("vdata/" + profil + "/kasten/" + mark2);
+
+            if(file.delete()){
+                System.out.println("\n" + file.getName() + " is deleted!");
+            }else{
+                System.out.println("Delete operation is failed.");
+            }
+
+        }catch(Exception e){}
+
         prio = prio - 48;
-   
+
         //Speichern
         try {
 
-			String content = "0" + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
+            String content = "0" + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
 
-			File file = new File("vdata/" + profil + "/pool/" + mark2);
+            File file = new File("vdata/" + profil + "/pool/" + mark2);
 
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
 
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
 
-			System.out.println("Done \t=> Output from FileWriter\n");
-                        
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-        
+            System.out.println("Done \t=> Output from FileWriter\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         poolscan();
         scan();
-        
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // Pool Button
+        poolscan();
+        scan();
+        //Buttonrechte
+        jButton1.setEnabled(false); //Löschen Button
+        jButton2.setEnabled(false); //Bearbeiten Button
+        jButton3.setEnabled(false); //Neu Button
+        jButton5.setEnabled(false); //Suchen Button
+        jButton8.setEnabled(false); //Poolbutton
+        jButton9.setEnabled(false); //Profil Button
+
+        jButton6.setEnabled(true); //In Kasten schieben Button
+        jButton7.setEnabled(true); //In Pool schieben Button
+        jButton10.setEnabled(true); //Bestätigungsbutton
+        jList2.setEnabled(true); //JList Freigeben
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // Profile
         sysprofile.main(args);
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // bestätigung von Pooländerung
+
+        //Buttonrechte
+        jButton1.setEnabled(true); //Löschen Button
+        jButton2.setEnabled(true); //Bearbeiten Button
+        jButton3.setEnabled(true); //Neu Button
+        jButton5.setEnabled(true); //Suchen Button
+        jButton6.setEnabled(false); //In Kasten schieben Button
+        jButton7.setEnabled(false); //In Pool schieben Button
+        jButton8.setEnabled(true); //Pool Button
+        jButton9.setEnabled(true); //Profil Button
+        jButton10.setEnabled(false); //Bestätigen Button
+        jList2.setEnabled(false); //JList wieder Sperren
+    }//GEN-LAST:event_jButton10ActionPerformed
+
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // Erweiterte Einstellungen Button
         //Bearbeitung Bald. Geplant sind anpassungen für speicherdatein und farbauswahl für die GUI
     }//GEN-LAST:event_jButton11ActionPerformed
 
+    public static void markin() {
+        mark = jList1.getSelectedValue();
+    }
+    
+    public static void markin2() {
+        mark2 = jList2.getSelectedValue();
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -904,6 +930,7 @@ public class sysinit extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     public static javax.swing.JList<String> jList1;
     public static javax.swing.JList<String> jList2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;

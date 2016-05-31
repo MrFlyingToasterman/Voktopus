@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class Voktopus extends javax.swing.JFrame {
 
-    public static String version = "1.1.0.2 (testing)";
+    public static String version = "1.1.0.4 (testing)";
     public static String prio;
     public static String uberschrift;
     public static String inhalt;
@@ -34,11 +34,11 @@ public class Voktopus extends javax.swing.JFrame {
         jLabel4.setText(auslese);
         
         if (version.contains("testing")) {
-            JOptionPane.showMessageDialog(null, "Danke dass Sie eine >Testing< Version verwenden!\n"
+            vh.alert_info("Danke dass Sie eine >Testing< Version verwenden!\n"
                     + "Sie helfen mir damit das Programm zu verbessern!\n"
                     + "Aber vergessen Sie nicht dass diese Version unausgereift ist und fehler enthalten kann!\n"
                     + "Bitte Melden Sie (sofern Sie wünschen) alle Fehler die Sie finden an MrFlyingToasterman@yahoo.de\n\n"
-                    + "Viel erfolg beim lernen! ~Der Entwickler", "Vielen Dank!", JOptionPane.INFORMATION_MESSAGE);
+                    + "Viel erfolg beim lernen! ~Der Entwickler", "Vielen Dank!");
         }
         
         //verzeichnis erstellen
@@ -48,7 +48,7 @@ public class Voktopus extends javax.swing.JFrame {
         }else {
             boolean repeter0 = false;
           do {
-            profil = JOptionPane.showInputDialog("Bitte geben Sie einen Namen für das Profil an: ");
+            profil = vh.alert_input("Bitte geben Sie einen Namen für das Profil an: ");
             
             if (profil == null) {
                 System.exit(0);
@@ -100,28 +100,8 @@ public class Voktopus extends javax.swing.JFrame {
         }
             
             //Speichern
-        try {
-
-			String content = profil;
-
-			File file = new File("vdata/sys.xvpus");
-
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
-
-			System.out.println("Done \t=> Output from FileWriter\n");
-                        
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-            JOptionPane.showMessageDialog(null, "Erfolg!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            vh.xwrite("sys", "vdata/", profil);
+            vh.alert_info("Erfolg!", "Info");
             profild();
             return;
         }
@@ -358,8 +338,8 @@ public class Voktopus extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        JOptionPane.showMessageDialog(null, "Voktopus " + version + " by Darius Musiolik 2k16"
-            + "\nWebseite: https://github.com/MrFlyingToasterman/Voktopus", "Über", JOptionPane.INFORMATION_MESSAGE);
+        vh.alert_info("Voktopus " + version + " by Darius Musiolik 2k16"
+            + "\nWebseite: https://github.com/MrFlyingToasterman/Voktopus", "Über");
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -421,27 +401,7 @@ public class Voktopus extends javax.swing.JFrame {
 
         leistungsindex = ja + "x" + neinint;
         //Leistungsindex abspeichern
-        try {
-
-            String content = leistungsindex;
-
-            File file = new File("vdata/" + profil + ".xvpus");
-
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-
-            System.out.println("Done \t=> Output from FileWriter\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        vh.xwrite(profil, "vdata/", leistungsindex);
 
         run();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -471,6 +431,9 @@ public class Voktopus extends javax.swing.JFrame {
         }
 
         //Speichern
+        vh.write(profil + "/" + ordner + "/" + uberschrift, "vdata/", untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung);
+        
+        /* Veraltet
         try {
 
             String content = untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
@@ -492,6 +455,7 @@ public class Voktopus extends javax.swing.JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
 
         //Leistungsindex lesen
         try {
@@ -526,28 +490,9 @@ public class Voktopus extends javax.swing.JFrame {
         System.out.println(ja + " << " + jaint + " << " + nein);
 
         leistungsindex = jaint + "x" + nein;
+        
         //Leistungsindex abspeichern
-        try {
-
-            String content = leistungsindex;
-
-            File file = new File("vdata/" + profil + ".xvpus");
-
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-
-            System.out.println("Done \t=> Output from FileWriter\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        vh.xwrite(profil, "vdata/", leistungsindex);
 
         run();
     }//GEN-LAST:event_jButton2ActionPerformed

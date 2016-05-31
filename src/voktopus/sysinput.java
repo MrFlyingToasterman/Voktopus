@@ -1,9 +1,6 @@
 package voktopus;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 import static voktopus.Voktopus.profil;
 
@@ -13,8 +10,10 @@ import static voktopus.Voktopus.profil;
  */
 public class sysinput extends javax.swing.JFrame {
 
-    public static int ccheck;
+    public static int ccheck; //ccheck (combocheck) 0 = pool und 1-4 = Kasten 1 bis 4
     public static String profilx;
+    vphelper vh = new vphelper(); //oop bausteine
+    
     /**
      * Creates new form sysinput
      */
@@ -170,6 +169,8 @@ public class sysinput extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Button Hinzufügen
+
         //Inhalt der GUI in Variabeln einlesen
         String uberschrift = jTextField1.getText();
         String inhalt = jTextField2.getText();
@@ -177,8 +178,8 @@ public class sysinput extends javax.swing.JFrame {
         
         //Überschrift prüfen
         if (uberschrift.equals("")) {
-            JOptionPane.showMessageDialog(null, "Datenbank0 kann nicht Void sein!", "Datenbanken Fehler", JOptionPane.ERROR_MESSAGE);
-            JOptionPane.showMessageDialog(null, "Überschrift Prüfen!", "Datenbank0 Void", JOptionPane.INFORMATION_MESSAGE);
+            vh.alert_err("Datenbank0 kann nicht Void sein!", "Datenbanken Fehler");
+            vh.alert_info("Überschrift Prüfen!", "Datenbanken Fehler");
             return;
         }
         
@@ -313,29 +314,8 @@ public class sysinput extends javax.swing.JFrame {
         System.out.println("In Ordner: " + ordner);
         
         //Speichern
-        try {
-
-			String content = ccheck + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
-
-			File file = new File("vdata/" + profil + "/" + ordner + "/" + uberschrift + ".vpus");
-
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
-
-			System.out.println("Done \t=> Output from FileWriter\n");
-                        this.hide();
-                        JOptionPane.showMessageDialog(null, "Erfolgreich!", "Information", JOptionPane.INFORMATION_MESSAGE);
-                        
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        vh.write(profil + "/" + ordner + "/" + uberschrift, "vdata/", ccheck + "\n" + uberschrift + "\n" + inhalt + "\n" + losung);
+        this.hide();
         
         //Scan nach änderung für sysinit
         sysinit.poolscan();
@@ -344,12 +324,12 @@ public class sysinput extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         //Hilfe
-        JOptionPane.showMessageDialog(null, "Bitte füllen Sie das Feld Überschrift aus!\n"
+        vh.alert_info("Bitte füllen Sie das Feld Überschrift aus!\n"
                 + "Die Angabe zum Inhalt hat keine Begrenzung.\n"
                 + "Das Feld Lösung ist Optional. Falls Sie keine Lösung wünschen, lassen Sie bitte >Keine Lösung< stehen!\n"
                 + "Wenn Sie ein >µ< schreiben, wird ein Zeilenumbruch generiert.\n"
                 + "\n"
-                + "Feedback bitte an: 'MrFlyingToasterman@yahoo.de'", "Hilfe zu Datenbanken", JOptionPane.INFORMATION_MESSAGE);
+                + "Feedback bitte an: 'MrFlyingToasterman@yahoo.de'", "Hilfe zu Datenbanken");
         abgleich();
     }//GEN-LAST:event_jLabel4MouseClicked
 

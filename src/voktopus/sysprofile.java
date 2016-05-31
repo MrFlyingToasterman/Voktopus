@@ -14,6 +14,7 @@ import static voktopus.Voktopus.profil;
 public class sysprofile extends javax.swing.JFrame {
     
     public static String mark3;
+    vphelper vh = new vphelper();
 
     /**
      * Creates new form sysprofile
@@ -192,28 +193,8 @@ public class sysprofile extends javax.swing.JFrame {
         proff.mkdir();
         
         //Leistungsindex erstellen
-        try {
-
-			String content = "0x0";
-
-			File file = new File("vdata/" + nprofil + ".xvpus");
-
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
-
-			System.out.println("Done -" + profil + "xvpus\t=> Output from FileWriter\n");
-                        
-                        
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        vh.xwrite(nprofil, "vdata/", "0x0");
+        
         profscan(); //neue Profile suchen
         setwindowname("Mommentan ausgewähltes Profil: " + profil); //namen anpassen
     }//GEN-LAST:event_jButton1ActionPerformed
