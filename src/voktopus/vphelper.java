@@ -1,7 +1,9 @@
 package voktopus;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
@@ -11,6 +13,21 @@ import javax.swing.JOptionPane;
  * @author Darius Musiolik
  */
 public class vphelper {
+    
+    public String leistungsindex_lesen(String vprofil) {
+        
+        String wiedergabe = "Fehler";
+        
+        try {
+            FileReader fr = new FileReader("vdata/" + vprofil + ".xvpus");
+            BufferedReader br = new BufferedReader(fr);
+             wiedergabe = br.readLine();
+            br.close();
+        } catch (Exception e) {
+        }
+        
+        return wiedergabe;
+    }
     
     public void alert_err(String content, String kopf) {
         JOptionPane.showMessageDialog(null, content, kopf, JOptionPane.ERROR_MESSAGE);

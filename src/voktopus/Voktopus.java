@@ -1,6 +1,8 @@
 package voktopus;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import javax.swing.JOptionPane;
 import java.util.Random;
 
@@ -10,7 +12,7 @@ import java.util.Random;
  */
 public class Voktopus extends javax.swing.JFrame {
 
-    public static String version = "1.1.0.4 (testing)";
+    public static String version = "1.1.0.7 (testing)";
     public static String prio;
     public static String uberschrift;
     public static String inhalt;
@@ -25,6 +27,7 @@ public class Voktopus extends javax.swing.JFrame {
     public static String leistungsindex;
     
     vphelper vh = new vphelper(); //oop
+    static vphelper svh = new vphelper();//static oop
     
     private String[] args;
     
@@ -91,13 +94,7 @@ public class Voktopus extends javax.swing.JFrame {
             vh.xwrite(profil, "vdata/", "0x0");
         
         //Letzten Leistungsindex Lesen
-        try {
-            FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
-            BufferedReader br = new BufferedReader(fr);
-            leistungsindex = br.readLine();
-            br.close();
-        } catch (Exception e) {
-        }
+        leistungsindex = vh.leistungsindex_lesen(profil);
             
             //Speichern
             vh.xwrite("sys", "vdata/", profil);
@@ -119,26 +116,14 @@ public class Voktopus extends javax.swing.JFrame {
         }
         
         //Letzten Leistungsindex Lesen
-        try {
-            FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
-            BufferedReader br = new BufferedReader(fr);
-            leistungsindex = br.readLine();
-            br.close();
-        } catch (Exception e) {
-        }
+        leistungsindex = vh.leistungsindex_lesen(profil);
         
         profild();
     }
     
     public static void leistungslesen() {
         //Letzten Leistungsindex Lesen
-        try {
-            FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
-            BufferedReader br = new BufferedReader(fr);
-            leistungsindex = br.readLine();
-            br.close();
-        } catch (Exception e) {
-        }
+        leistungsindex = svh.leistungsindex_lesen(profil); //static oop
         profild();
     }
     
@@ -368,13 +353,7 @@ public class Voktopus extends javax.swing.JFrame {
         vh.write(profil + "/" + ordner + "/" + uberschrift, "vdata/", untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung);
 
         //Leistungsindex lesen
-        try {
-            FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
-            BufferedReader br = new BufferedReader(fr);
-            leistungsindex = br.readLine();
-            br.close();
-        } catch (Exception e) {
-        }
+       leistungsindex = vh.leistungsindex_lesen(profil);
 
         //Leistungsindex Anpassen
         String ja = "";
@@ -432,39 +411,9 @@ public class Voktopus extends javax.swing.JFrame {
 
         //Speichern
         vh.write(profil + "/" + ordner + "/" + uberschrift, "vdata/", untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung);
-        
-        /* Veraltet
-        try {
-
-            String content = untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung;
-
-            File file = new File("vdata/" + profil + "/" + ordner + "/" + uberschrift + ".vpus");
-
-            // if file doesnt exists, then create it
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-
-            System.out.println("Done \t=> Output from FileWriter\n");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
 
         //Leistungsindex lesen
-        try {
-            FileReader fr = new FileReader("vdata/" + profil + ".xvpus");
-            BufferedReader br = new BufferedReader(fr);
-            leistungsindex = br.readLine();
-            br.close();
-        } catch (Exception e) {
-        }
+        leistungsindex = vh.leistungsindex_lesen(profil);
 
         //Leistungsindex Anpassen
         String ja = "";
@@ -499,6 +448,8 @@ public class Voktopus extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
+        System.err.println("jButton3 Event Startet");
+        
         //check ob daten da
         System.out.println("Untersuche!");
 
@@ -527,10 +478,16 @@ public class Voktopus extends javax.swing.JFrame {
             jButton6.setEnabled(startbtn);
 
             //System.out.println für Konsolen Log + Debuging
-            System.out.println("Start Button Click");
-            System.out.println("--------------------------");
+            System.out.println("Start Button Click\n"
+                    + "--------------------------");
+            
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+            }
 
             //Start => Einlesen von Datei
+            System.err.println("run(); call");
             run();
 
         }else{
@@ -567,6 +524,7 @@ public class Voktopus extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     public void run() {
+        System.err.println("! Beginne run();\n");
         profild();
         combocheck = jComboBox1.getSelectedIndex();
         
@@ -582,9 +540,17 @@ public class Voktopus extends javax.swing.JFrame {
         File dir = new File("vdata/" + profil + "/" + ordner);
    
         String[] children = dir.list();
+        System.err.println("! dir.list enthält:\n>");
+        
+        for(int i = 0; i < children.length; i++) {
+            System.err.println(children[i]);
+        }
+        
+        System.err.println("<");
+        
             if (children == null) {
                 //nicht vorhanden
-                System.out.println("keine datenbanken gefunden");
+                System.out.println("Keine datenbanken gefunden");
                 
                 
                 // Button FX
@@ -604,23 +570,21 @@ public class Voktopus extends javax.swing.JFrame {
                 jTextArea1.setText("oooooo      oooo               oooo                      .                                             \n    `888.      .8'                   `888                   .o8                                             \n     `888.    .8'     .ooooo.      888    oooo   .o888oo   .ooooo.       oo.ooooo.     oooo    oooo       .oooo.o \n      `888. .8'    d88'    `88b    888 .8P'          888     d88'   `88b     888'   `88b    `888    `888      d88(     \"8 \n       `888.8'    888      888    888888.           888     888      888    888     888     888     888        `\"Y88b.  \n        `888'      888      888    888 `88b.         888 .   888      888    888     888     888     888      o.    )88b \n          `8'        `Y8bod8P'   o888o o888o      \"888\"   `Y8bod8P'     888bod8P'     `V88V\"V8P'     8\"\"888P' \n                                                     \t                                    888                            \n                                                        \t                                  o888o                           \n                                                                                        ");
                 this.setTitle("Voktopus");
                 jLabel4.setText("keine");
-                JOptionPane.showMessageDialog(null, "Keine Datenbanken gefunden!", "Abbruch!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Keine Datenbanken gefunden!", "Einlesefehler", JOptionPane.ERROR_MESSAGE);
                     return;
             } else {
                 for (int i=0; i<children.length; i++) {
                 String filename = children[i];
-                System.out.println(children[i] + "\t=> Output from File dir");
+                System.out.println(children[i] + "\t=> Output from File dir TEST");
                 }
             }
          
             
-                int bug = children.length * 2;
+                int bug = children.length * 4 + 100; //Random Buffer
                 int bag = 0;
+                System.err.println("Randombuffer (bug) = " + bug);
                 repeter = true;
            do {
-               
-            //System.out.println für Konsolen Log + Debuging
-            System.out.println("--------------------------");
             
             //Zufällig Datei wählen
             Random zufall = new Random();
@@ -643,7 +607,7 @@ public class Voktopus extends javax.swing.JFrame {
                 jTextArea1.setText("oooooo      oooo               oooo                      .                                             \n    `888.      .8'                   `888                   .o8                                             \n     `888.    .8'     .ooooo.      888    oooo   .o888oo   .ooooo.       oo.ooooo.     oooo    oooo       .oooo.o \n      `888. .8'    d88'    `88b    888 .8P'          888     d88'   `88b     888'   `88b    `888    `888      d88(     \"8 \n       `888.8'    888      888    888888.           888     888      888    888     888     888     888        `\"Y88b.  \n        `888'      888      888    888 `88b.         888 .   888      888    888     888     888     888      o.    )88b \n          `8'        `Y8bod8P'   o888o o888o      \"888\"   `Y8bod8P'     888bod8P'     `V88V\"V8P'     8\"\"888P' \n                                                     \t                                    888                            \n                                                        \t                                  o888o                           \n                                                                                        ");
                 this.setTitle("Voktopus");
                 jLabel4.setText("keine");
-                JOptionPane.showMessageDialog(null, "Keine Datenbanken gefunden!", "Abbruch!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Keine Datenbanken gefunden!", "Random Fehler", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             int zufallswert = zufall.nextInt(children.length);
@@ -681,7 +645,7 @@ public class Voktopus extends javax.swing.JFrame {
                     jComboBox1.setEnabled(true);
                     jButton5.setEnabled(false);
                     jButton6.setEnabled(true);
-                    JOptionPane.showMessageDialog(null, "Keine Datenbanken mehr in diesem Karteikasten!", "End of Stream!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Keine Datenbanken mehr in diesem Karteikasten!", "Randombuffer Overflow", JOptionPane.ERROR_MESSAGE);
                     jTextArea1.setText("oooooo      oooo               oooo                      .                                             \n    `888.      .8'                   `888                   .o8                                             \n     `888.    .8'     .ooooo.      888    oooo   .o888oo   .ooooo.       oo.ooooo.     oooo    oooo       .oooo.o \n      `888. .8'    d88'    `88b    888 .8P'          888     d88'   `88b     888'   `88b    `888    `888      d88(     \"8 \n       `888.8'    888      888    888888.           888     888      888    888     888     888     888        `\"Y88b.  \n        `888'      888      888    888 `88b.         888 .   888      888    888     888     888     888      o.    )88b \n          `8'        `Y8bod8P'   o888o o888o      \"888\"   `Y8bod8P'     888bod8P'     `V88V\"V8P'     8\"\"888P' \n                                                     \t                                    888                            \n                                                        \t                                  o888o                           \n                                                                                        ");
                     this.setTitle("Voktopus");
                     return;
