@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Voktopus extends javax.swing.JFrame {
 
-    public static String version = "1.1.0.7 (testing)";
+    public static String version = "1.2.0.0 (testing)";
     public static String prio;
     public static String uberschrift;
     public static String inhalt;
@@ -25,6 +25,7 @@ public class Voktopus extends javax.swing.JFrame {
     public static String ordner;
     public static String profil;
     public static String leistungsindex;
+    public String theme = svh.deepsettings_lesen("color"); //Theme einlesen
     
     vphelper vh = new vphelper(); //oop
     static vphelper svh = new vphelper();//static oop
@@ -92,9 +93,14 @@ public class Voktopus extends javax.swing.JFrame {
             
             //Leistungsindex erstellen
             vh.xwrite(profil, "vdata/", "0x0");
+            
+            //deepsettings file erstellen
+            vh.xwrite("deepsettings", "vdata/", "color:dunkel;\n"
+                    + "beta:1;");
         
         //Letzten Leistungsindex Lesen
         leistungsindex = vh.leistungsindex_lesen(profil);
+        
             
             //Speichern
             vh.xwrite("sys", "vdata/", profil);
@@ -102,6 +108,8 @@ public class Voktopus extends javax.swing.JFrame {
             profild();
             return;
         }
+        
+        
          //Letztes Profil Lesen
         try {
             FileReader fr = new FileReader("vdata/sys.xvpus");
@@ -118,6 +126,12 @@ public class Voktopus extends javax.swing.JFrame {
         //Letzten Leistungsindex Lesen
         leistungsindex = vh.leistungsindex_lesen(profil);
         
+        //Auswerten des themes
+        svh.themeuse(theme);
+        
+        //Ausgabe des Themes
+        System.out.println("Theme: " + theme);
+        
         profild();
     }
     
@@ -131,6 +145,7 @@ public class Voktopus extends javax.swing.JFrame {
         //Anzeige Setzen
         jLabel6.setText(profil);
         jLabel7.setText("Leistungsindex: " + leistungsindex);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -732,7 +747,7 @@ public class Voktopus extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     public static javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    public static javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -741,7 +756,7 @@ public class Voktopus extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel6;
     public static javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
+    public static javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
