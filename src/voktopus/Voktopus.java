@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Voktopus extends javax.swing.JFrame {
 
-    public static String version = "1.2.0.0 (testing)";
+    public static String version = "1.2.0.3 (testing)";
     public static String prio;
     public static String uberschrift;
     public static String inhalt;
@@ -26,6 +26,7 @@ public class Voktopus extends javax.swing.JFrame {
     public static String profil;
     public static String leistungsindex;
     public String theme = svh.deepsettings_lesen("color"); //Theme einlesen
+    public String betawarnung = svh.deepsettings_lesen("beta"); //Beta warnung Anzeigen
     
     vphelper vh = new vphelper(); //oop
     static vphelper svh = new vphelper();//static oop
@@ -37,7 +38,7 @@ public class Voktopus extends javax.swing.JFrame {
         jLabel1.setText("Voktopus " + version);
         jLabel4.setText(auslese);
         
-        if (version.contains("testing")) {
+        if (version.contains("testing") && betawarnung.equals("1")) {
             vh.alert_info("Danke dass Sie eine >Testing< Version verwenden!\n"
                     + "Sie helfen mir damit das Programm zu verbessern!\n"
                     + "Aber vergessen Sie nicht dass diese Version unausgereift ist und fehler enthalten kann!\n"
@@ -743,12 +744,12 @@ public class Voktopus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public static javax.swing.JButton jButton1;
+    public static javax.swing.JButton jButton2;
     public static javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
+    public static javax.swing.JButton jButton5;
     public static javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public static javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

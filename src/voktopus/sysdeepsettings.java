@@ -7,6 +7,7 @@ package voktopus;
 public class sysdeepsettings extends javax.swing.JFrame {
     
     vphelper vh = new vphelper();
+    public static vphelper psvh = new vphelper();
     public String theme = vh.deepsettings_lesen("color"); //Farbe und darstellung
     public String betawarn = vh.deepsettings_lesen("beta"); //Beta warnung Anzeigen
     public int beta_int;
@@ -139,8 +140,11 @@ public class sysdeepsettings extends javax.swing.JFrame {
         //Speicher theme
         vh.deepsettings_schreiben("color", jComboBox1.getSelectedItem().toString());
         
+        //Aktuallisire Betawarn Variable
+        int temp = betastate();
         //Speicher Beta Warnung
-        vh.deepsettings_schreiben("beta", betawarn);
+        betawarn = "" + temp;
+        psvh.deepsettings_schreiben("beta", betawarn);
         
         vh.alert_info("Bitte starten Sie Voktopus neu", "Information");
         this.hide();

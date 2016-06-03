@@ -39,6 +39,19 @@ public class vphelper {
                 Voktopus.jPanel2.setBackground(Color.lightGray); //Hintergrund
                 Voktopus.jButton3.setBackground(Color.gray); //Start Button
                 Voktopus.jButton6.setBackground(Color.gray); //Einstellungen
+                Voktopus.jButton5.setBackground(Color.gray); //Lösungsbutton
+                Voktopus.jButton2.setBackground(Color.gray); //Ich wusste es Button
+                Voktopus.jButton1.setBackground(Color.gray); //Ich wusste es Button
+                Voktopus.jComboBox1.setBackground(Color.gray); //Combobox
+                break;
+            case "blau":
+                Voktopus.jPanel2.setBackground(Color.blue); //Hintergrund
+                Voktopus.jButton3.setBackground(Color.blue); //Start Button
+                Voktopus.jButton6.setBackground(Color.blue); //Einstellungen
+                Voktopus.jButton5.setBackground(Color.blue); //Lösungsbutton
+                Voktopus.jButton2.setBackground(Color.blue); //Ich wusste es Button
+                Voktopus.jButton1.setBackground(Color.blue); //Ich wusste es Button
+                Voktopus.jComboBox1.setBackground(Color.blue); //Combobox
                 break;
             case "dunkel":
                 //Nichts unternemen da Standart
@@ -87,6 +100,7 @@ public class vphelper {
     public static int counter; //Suche für auszutauschende Zeile
     public static int bufferflow; //Suche nach arraylänge
     public static int break_int;
+    public static String array_ueberfuehrung;
     
     public void deepsettings_schreiben(String wert, String attribut) {
         
@@ -98,12 +112,14 @@ public class vphelper {
         counter = -1;
         bufferflow = 0;
         break_int = 666;
+        array_ueberfuehrung = "";
         
         try {
             FileReader fr = new FileReader("vdata/deepsettings.xvpus");
             BufferedReader br = new BufferedReader(fr);
-         System.out.println("Lauf 1,4");
-            for(int i = 0; break_int == 0; i++) {
+            System.out.println("Lauf 1,4");
+            
+            while(break_int != 0) {
                 System.out.println("Lauf 1,5");
                 if (br.readLine() != null) {
                     bufferflow++;
@@ -153,8 +169,10 @@ public class vphelper {
                 System.err.println("VALID");
                 System.out.println("Lauf 5");
                 
-                if (br.readLine() != null) {
-                    buffer[i] = br.readLine();
+                array_ueberfuehrung = br.readLine();
+                
+                if (array_ueberfuehrung != null) {
+                    buffer[i] = array_ueberfuehrung;
                 }
                 
             }

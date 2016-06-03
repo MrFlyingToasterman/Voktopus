@@ -33,6 +33,7 @@ public class sysinit extends javax.swing.JFrame {
     
     public static boolean check0 = false;
     public static boolean check1 = false;
+    private String[] argz;
 
     /**
      * Creates new form sysinit
@@ -865,7 +866,7 @@ public class sysinit extends javax.swing.JFrame {
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // Erweiterte Einstellungen Button
         //Bearbeitung Bald. Geplant sind anpassungen für speicherdatein und farbauswahl für die GUI
-        sysdeepsettings.main(args);
+        sysdeepsettings.main(argz);
         
     }//GEN-LAST:event_jButton11ActionPerformed
 
