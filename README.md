@@ -40,8 +40,9 @@ Solltest du Probleme oder Fragen haben schreib mir einfach eine Nachricht :)
 
 #Ziele
 => Leistungsindex: Statistiken für gewusste und ungewusste karten. <-- Fertig <br>
-=> Eine schönere GUI. <br>
-=> Einen 'Dunkel' Modus für das pauken bis tief in die Nacht. <br>
+=> Eine schönere GUI. <-- In Bearbeitung<br>
+=> Themesupport <-- In Bearbeitung <br>
+=> Einen 'Dunkel' Modus für das pauken bis tief in die Nacht. <-- In Bearbeitung<br>
 => Funktion: Bilder mitzuspeichern. <br>
 <br>
 => [Dauerauftrag] optimirung des Programmcodes. (Da ich immer besser in Java werde und viel lernen konnte werde ich versuchen stück für stück den Programmcode zu verbessern)
