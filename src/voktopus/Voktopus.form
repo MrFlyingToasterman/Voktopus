@@ -133,6 +133,9 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MouseClicked"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -153,6 +156,9 @@
                 <Property name="text" type="java.lang.String" value="oooooo      oooo               oooo                      .                                             &#xa;    `888.      .8&apos;                   `888                   .o8                                             &#xa;     `888.    .8&apos;     .ooooo.      888    oooo   .o888oo   .ooooo.       oo.ooooo.     oooo    oooo       .oooo.o &#xa;      `888. .8&apos;    d88&apos;    `88b    888 .8P&apos;          888     d88&apos;   `88b     888&apos;   `88b    `888    `888      d88(     &quot;8 &#xa;       `888.8&apos;    888      888    888888.           888     888      888    888     888     888     888        `&quot;Y88b.  &#xa;        `888&apos;      888      888    888 `88b.         888 .   888      888    888     888     888     888      o.    )88b &#xa;          `8&apos;        `Y8bod8P&apos;   o888o o888o      &quot;888&quot;   `Y8bod8P&apos;     888bod8P&apos;     `V88V&quot;V8P&apos;     8&quot;&quot;888P&apos; &#xa;                                                     &#x9;                                    888                            &#xa;                                                        &#x9;                                  o888o                           &#xa;                                                                                        "/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -222,6 +228,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="vokabelkasten:"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -230,6 +239,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Mommentane Datenbankanbindung:"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -241,6 +253,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel4"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
@@ -278,6 +293,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Profil:"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>

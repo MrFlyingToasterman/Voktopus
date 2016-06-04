@@ -1,6 +1,7 @@
 package voktopus;
 
 import java.awt.Color;
+import java.awt.color.ColorSpace;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -43,15 +44,31 @@ public class vphelper {
                 Voktopus.jButton2.setBackground(Color.gray); //Ich wusste es Button
                 Voktopus.jButton1.setBackground(Color.gray); //Ich wusste es Button
                 Voktopus.jComboBox1.setBackground(Color.gray); //Combobox
+                Voktopus.jLabel5.setForeground(Color.black); //Profil - Label
+                Voktopus.jLabel6.setForeground(Color.BLUE); //Profilname - Label
+                Voktopus.jLabel2.setForeground(Color.black); //Vokabelkasten - Label
+                Voktopus.jLabel7.setForeground(Color.BLUE); //Leistungsindex - Label
+                Voktopus.jLabel3.setForeground(Color.black); //Mommentane Datenbank anbindung: - Label
+                Voktopus.jLabel4.setForeground(Color.BLUE); //Datenbank - Label
+                Voktopus.jLabel1.setForeground(Color.GRAY); //Version - Label
+                
                 break;
             case "blau":
-                Voktopus.jPanel2.setBackground(Color.blue); //Hintergrund
-                Voktopus.jButton3.setBackground(Color.blue); //Start Button
-                Voktopus.jButton6.setBackground(Color.blue); //Einstellungen
-                Voktopus.jButton5.setBackground(Color.blue); //Lösungsbutton
-                Voktopus.jButton2.setBackground(Color.blue); //Ich wusste es Button
-                Voktopus.jButton1.setBackground(Color.blue); //Ich wusste es Button
-                Voktopus.jComboBox1.setBackground(Color.blue); //Combobox
+                Voktopus.jPanel2.setBackground((new Color(0,59,111))); //Hintergrund
+                Voktopus.jButton3.setBackground((new Color(76,117,154))); //Start Button
+                Voktopus.jButton6.setBackground((new Color(76,117,154))); //Einstellungen
+                Voktopus.jButton5.setBackground((new Color(76,117,154))); //Lösungsbutton
+                Voktopus.jButton2.setBackground((new Color(76,117,154))); //Ich wusste es Button
+                Voktopus.jButton1.setBackground((new Color(76,117,154))); //Ich wusste es Button
+                Voktopus.jComboBox1.setBackground((new Color(76,117,154))); //Combobox
+                Voktopus.jLabel5.setForeground(Color.lightGray); //Profil - Label
+                Voktopus.jLabel6.setForeground(Color.white); //Profilname - Label
+                Voktopus.jLabel2.setForeground(Color.lightGray); //Vokabelkasten - Label
+                Voktopus.jLabel7.setForeground(Color.white); //Leistungsindex - Label
+                Voktopus.jLabel3.setForeground(Color.lightGray); //Mommentane Datenbank anbindung: - Label
+                Voktopus.jLabel4.setForeground(Color.white); //Datenbank - Label
+                Voktopus.jLabel1.setForeground((new Color(60,93,123))); //Version - Label
+                Voktopus.jTextArea1.setBackground((new Color(177,190,202))); //Hintergrung Haupttextbox
                 break;
             case "dunkel":
                 //Nichts unternemen da Standart
