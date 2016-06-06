@@ -5,7 +5,7 @@ package voktopus;
  * @author Darius Musiolik
  */
 public class sysdeepsettings extends javax.swing.JFrame {
-    
+
     vphelper vh = new vphelper();
     public static vphelper psvh = new vphelper();
     public String theme = vh.deepsettings_lesen("color"); //Farbe und darstellung
@@ -14,38 +14,38 @@ public class sysdeepsettings extends javax.swing.JFrame {
 
     public sysdeepsettings() {
         initComponents();
-        
+
         System.err.println("betawert " + betawarn);
-        
+
         //combokbox wert zuteilen
         int counter = 0;
         for (int i = 0; i < jComboBox1.getItemCount(); i++) {
-            
+
             if (jComboBox1.getItemAt(i).equals(theme)) {
                 break;
             }
             counter++;
         }
-        
+
         jComboBox1.setSelectedIndex(counter);
-        
+
         //checkbox wert zuteilen
-        if(betawarn.equals("0")) {
+        if (betawarn.equals("0")) {
             jCheckBox1.setSelected(false);
-        }else {
+        } else {
             jCheckBox1.setSelected(true);
         }
         beta_int = betastate();
-        
+
     }
-    
+
     public int betastate() {
-        
+
         System.err.println("Checkboxstate: >" + jCheckBox1.isSelected() + "<");
-        
+
         if (jCheckBox1.isSelected()) {
             return 1;
-        }else {
+        } else {
             return 0;
         }
     }
@@ -136,16 +136,16 @@ public class sysdeepsettings extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Speichern Button
-        
+
         //Speicher theme
         vh.deepsettings_schreiben("color", jComboBox1.getSelectedItem().toString());
-        
+
         //Aktuallisire Betawarn Variable
         int temp = betastate();
         //Speicher Beta Warnung
         betawarn = "" + temp;
         psvh.deepsettings_schreiben("beta", betawarn);
-        
+
         vh.alert_info("Bitte starten Sie Voktopus neu", "Information");
         this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed

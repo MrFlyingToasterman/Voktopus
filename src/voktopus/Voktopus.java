@@ -27,17 +27,17 @@ public class Voktopus extends javax.swing.JFrame {
     public static String leistungsindex;
     public String theme = svh.deepsettings_lesen("color"); //Theme einlesen
     public String betawarnung = svh.deepsettings_lesen("beta"); //Beta warnung Anzeigen
-    
+
     vphelper vh = new vphelper(); //oop
     static vphelper svh = new vphelper();//static oop
-    
+
     private String[] args;
-    
+
     public Voktopus() {
         initComponents();
         jLabel1.setText("Voktopus " + version);
         jLabel4.setText(auslese);
-        
+
         if (version.contains("testing") && betawarnung.equals("1")) {
             vh.alert_info("Danke dass Sie eine >Testing< Version verwenden!\n"
                     + "Sie helfen mir damit das Programm zu verbessern!\n"
@@ -45,73 +45,70 @@ public class Voktopus extends javax.swing.JFrame {
                     + "Bitte Melden Sie (sofern Sie wünschen) alle Fehler die Sie finden an MrFlyingToasterman@yahoo.de\n\n"
                     + "Viel erfolg beim lernen! ~Der Entwickler", "Vielen Dank!");
         }
-        
+
         //verzeichnis erstellen
         File f = new File("vdata");
         if (f.exists() && f.isDirectory()) {
             System.out.println("Verzeichnis vdata/ bereits erstellt");
-        }else {
+        } else {
             boolean repeter0 = false;
-          do {
-            profil = vh.alert_input("Bitte geben Sie einen Namen für das Profil an: ");
-            
-            if (profil == null) {
-                System.exit(0);
-            }
-            
-            //Verhinder dass es leer oder leerzeichen ist
-            if (profil.equalsIgnoreCase("") || profil.contains(" ")) {
-                JOptionPane.showMessageDialog(null, "Ein Profil darf nicht Void sein!!", "Programm Ende", JOptionPane.ERROR_MESSAGE);
-                continue;
-            }
-            
-            //Verhinder |
-            if (profil.contains("|")) {
-                JOptionPane.showMessageDialog(null, "Ein Profil darf kein '/' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
-                continue;
-            }
-            
-            //Verhinder \
-            if (profil.contains("\\")) {
-                JOptionPane.showMessageDialog(null, "Ein Profil darf kein '\\' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
-                continue;
-            }
-        
-            //Verhinder "
-            if (profil.contains("\"")) {
-                JOptionPane.showMessageDialog(null, "Ein Profil darf kein '\"' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
-                continue;
-            }
-            
-            repeter0 = false;
-          } while (repeter0);                   
-        
-            
+            do {
+                profil = vh.alert_input("Bitte geben Sie einen Namen für das Profil an: ");
+
+                if (profil == null) {
+                    System.exit(0);
+                }
+
+                //Verhinder dass es leer oder leerzeichen ist
+                if (profil.equalsIgnoreCase("") || profil.contains(" ")) {
+                    JOptionPane.showMessageDialog(null, "Ein Profil darf nicht Void sein!!", "Programm Ende", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+
+                //Verhinder |
+                if (profil.contains("|")) {
+                    JOptionPane.showMessageDialog(null, "Ein Profil darf kein '/' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+
+                //Verhinder \
+                if (profil.contains("\\")) {
+                    JOptionPane.showMessageDialog(null, "Ein Profil darf kein '\\' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+
+                //Verhinder "
+                if (profil.contains("\"")) {
+                    JOptionPane.showMessageDialog(null, "Ein Profil darf kein '\"' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+
+                repeter0 = false;
+            } while (repeter0);
+
             f.mkdir(); //Verzeichnis kann ohne Probleme erstellt werden
-            File proff = new File ("vdata/" + profil);           
+            File proff = new File("vdata/" + profil);
             proff.mkdir();
             jLabel6.setText(profil);
-            
+
             //Leistungsindex erstellen
             vh.xwrite(profil, "vdata/", "0x0");
-            
+
             //deepsettings file erstellen
             vh.xwrite("deepsettings", "vdata/", "color:dunkel;\n"
                     + "beta:1;");
-        
-        //Letzten Leistungsindex Lesen
-        leistungsindex = vh.leistungsindex_lesen(profil);
-        
-            
+
+            //Letzten Leistungsindex Lesen
+            leistungsindex = vh.leistungsindex_lesen(profil);
+
             //Speichern
             vh.xwrite("sys", "vdata/", profil);
             vh.alert_info("Erfolg!", "Info");
             profild();
             return;
         }
-        
-        
-         //Letztes Profil Lesen
+
+        //Letztes Profil Lesen
         try {
             FileReader fr = new FileReader("vdata/sys.xvpus");
             BufferedReader br = new BufferedReader(fr);
@@ -123,30 +120,30 @@ public class Voktopus extends javax.swing.JFrame {
             br.close();
         } catch (Exception e) {
         }
-        
+
         //Letzten Leistungsindex Lesen
         leistungsindex = vh.leistungsindex_lesen(profil);
-        
+
         //Auswerten des themes
         svh.themeuse(theme);
-        
+
         //Ausgabe des Themes
         System.out.println("Theme: " + theme);
-        
+
         profild();
     }
-    
+
     public static void leistungslesen() {
         //Letzten Leistungsindex Lesen
         leistungsindex = svh.leistungsindex_lesen(profil); //static oop
         profild();
     }
-    
+
     public static void profild() {
         //Anzeige Setzen
         jLabel6.setText(profil);
         jLabel7.setText("Leistungsindex: " + leistungsindex);
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -340,7 +337,7 @@ public class Voktopus extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         vh.alert_info("Voktopus " + version + " by Darius Musiolik 2k16"
-            + "\nWebseite: https://github.com/MrFlyingToasterman/Voktopus", "Über");
+                + "\nWebseite: https://github.com/MrFlyingToasterman/Voktopus", "Über");
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -356,20 +353,20 @@ public class Voktopus extends javax.swing.JFrame {
         //Abgleich wegen Negativen zahlen
         switch (untersuchung) {
             case 1:
-            //Nichts Unternemen
-            break;
+                //Nichts Unternemen
+                break;
             case 0:
-            //Nichts Unternemen
-            break;
+                //Nichts Unternemen
+                break;
             default:
-            untersuchung = 1;
-            break;
+                untersuchung = 1;
+                break;
         }
         //Speichern
         vh.write(profil + "/" + ordner + "/" + uberschrift, "vdata/", untersuchung + "\n" + uberschrift + "\n" + inhalt + "\n" + losung);
 
         //Leistungsindex lesen
-       leistungsindex = vh.leistungsindex_lesen(profil);
+        leistungsindex = vh.leistungsindex_lesen(profil);
 
         //Leistungsindex Anpassen
         String ja = "";
@@ -377,7 +374,7 @@ public class Voktopus extends javax.swing.JFrame {
         char iks = 'x';
         boolean janein = true;
 
-        for(int i = 0;  i < leistungsindex.length(); i++) {
+        for (int i = 0; i < leistungsindex.length(); i++) {
             System.out.println(i + " => " + leistungsindex.charAt(i));
             if (iks == leistungsindex.charAt(i)) {
                 janein = false;
@@ -385,7 +382,7 @@ public class Voktopus extends javax.swing.JFrame {
             }
             if (janein == true) {
                 ja = ja + leistungsindex.charAt(i);
-            }else{
+            } else {
                 nein = nein + leistungsindex.charAt(i);
             }
         }
@@ -411,18 +408,17 @@ public class Voktopus extends javax.swing.JFrame {
         jButton5.setEnabled(true);
 
         //Neue Hirachie 0 = Pool 1 -4 = Kästen
-
         //Abgleich wegen Negativen zahlen
         switch (untersuchung) {
             case 4:
-            //Nichts Unternemen
-            break;
+                //Nichts Unternemen
+                break;
             case 0:
-            //Nichts Unternemen
-            break;
+                //Nichts Unternemen
+                break;
             default:
-            untersuchung++;
-            break;
+                untersuchung++;
+                break;
         }
 
         //Speichern
@@ -437,7 +433,7 @@ public class Voktopus extends javax.swing.JFrame {
         char iks = 'x';
         boolean janein = true;
 
-        for(int i = 0;  i < leistungsindex.length(); i++) {
+        for (int i = 0; i < leistungsindex.length(); i++) {
             System.out.println(i + " => " + leistungsindex.charAt(i));
             if (iks == leistungsindex.charAt(i)) {
                 janein = false;
@@ -445,7 +441,7 @@ public class Voktopus extends javax.swing.JFrame {
             }
             if (janein == true) {
                 ja = ja + leistungsindex.charAt(i);
-            }else{
+            } else {
                 nein = nein + leistungsindex.charAt(i);
             }
         }
@@ -455,7 +451,7 @@ public class Voktopus extends javax.swing.JFrame {
         System.out.println(ja + " << " + jaint + " << " + nein);
 
         leistungsindex = jaint + "x" + nein;
-        
+
         //Leistungsindex abspeichern
         vh.xwrite(profil, "vdata/", leistungsindex);
 
@@ -465,7 +461,7 @@ public class Voktopus extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
         System.err.println("jButton3 Event Startet");
-        
+
         //check ob daten da
         System.out.println("Untersuche!");
 
@@ -496,7 +492,7 @@ public class Voktopus extends javax.swing.JFrame {
             //System.out.println für Konsolen Log + Debuging
             System.out.println("Start Button Click\n"
                     + "--------------------------");
-            
+
             try {
                 Thread.sleep(100);
             } catch (Exception e) {
@@ -506,7 +502,7 @@ public class Voktopus extends javax.swing.JFrame {
             System.err.println("run(); call");
             run();
 
-        }else{
+        } else {
             jButton5.setEnabled(startbtn);
             startbtn = true; //Stop Funktion
             jButton3.setText("Start");
@@ -543,65 +539,63 @@ public class Voktopus extends javax.swing.JFrame {
         System.err.println("! Beginne run();\n");
         profild();
         combocheck = jComboBox1.getSelectedIndex();
-        
+
         if (combocheck == 0) {
             ordner = "pool";
-        }else {
+        } else {
             ordner = "kasten";
         }
-        
+
         System.out.println(ordner);
-        
+
         //Daten Lesen
         File dir = new File("vdata/" + profil + "/" + ordner);
-   
+
         String[] children = dir.list();
         System.err.println("! dir.list enthält:\n>");
-        
-        for(int i = 0; i < children.length; i++) {
+
+        for (int i = 0; i < children.length; i++) {
             System.err.println(children[i]);
         }
-        
+
         System.err.println("<");
-        
-            if (children == null) {
-                //nicht vorhanden
-                System.out.println("Keine datenbanken gefunden");
-                
-                
-                // Button FX
-                jButton1.setEnabled(startbtn);
-                jButton2.setEnabled(startbtn);
-                jButton5.setEnabled(startbtn);
-                jTextArea1.setEnabled(startbtn);
-                
-                jButton5.setEnabled(startbtn);
-                startbtn = true; //Stop Funktion
-                jButton3.setText("Start");
-                jButton6.setEnabled(startbtn);
-                System.out.println("--------------------------");
-                System.out.println("Stop Button Click");
-                System.out.println("--------------------------");
-                jComboBox1.setEnabled(true);
-                jTextArea1.setText("oooooo      oooo               oooo                      .                                             \n    `888.      .8'                   `888                   .o8                                             \n     `888.    .8'     .ooooo.      888    oooo   .o888oo   .ooooo.       oo.ooooo.     oooo    oooo       .oooo.o \n      `888. .8'    d88'    `88b    888 .8P'          888     d88'   `88b     888'   `88b    `888    `888      d88(     \"8 \n       `888.8'    888      888    888888.           888     888      888    888     888     888     888        `\"Y88b.  \n        `888'      888      888    888 `88b.         888 .   888      888    888     888     888     888      o.    )88b \n          `8'        `Y8bod8P'   o888o o888o      \"888\"   `Y8bod8P'     888bod8P'     `V88V\"V8P'     8\"\"888P' \n                                                     \t                                    888                            \n                                                        \t                                  o888o                           \n                                                                                        ");
-                this.setTitle("Voktopus");
-                jLabel4.setText("keine");
-                JOptionPane.showMessageDialog(null, "Keine Datenbanken gefunden!", "Einlesefehler", JOptionPane.ERROR_MESSAGE);
-                    return;
-            } else {
-                for (int i=0; i<children.length; i++) {
+
+        if (children == null) {
+            //nicht vorhanden
+            System.out.println("Keine datenbanken gefunden");
+
+            // Button FX
+            jButton1.setEnabled(startbtn);
+            jButton2.setEnabled(startbtn);
+            jButton5.setEnabled(startbtn);
+            jTextArea1.setEnabled(startbtn);
+
+            jButton5.setEnabled(startbtn);
+            startbtn = true; //Stop Funktion
+            jButton3.setText("Start");
+            jButton6.setEnabled(startbtn);
+            System.out.println("--------------------------");
+            System.out.println("Stop Button Click");
+            System.out.println("--------------------------");
+            jComboBox1.setEnabled(true);
+            jTextArea1.setText("oooooo      oooo               oooo                      .                                             \n    `888.      .8'                   `888                   .o8                                             \n     `888.    .8'     .ooooo.      888    oooo   .o888oo   .ooooo.       oo.ooooo.     oooo    oooo       .oooo.o \n      `888. .8'    d88'    `88b    888 .8P'          888     d88'   `88b     888'   `88b    `888    `888      d88(     \"8 \n       `888.8'    888      888    888888.           888     888      888    888     888     888     888        `\"Y88b.  \n        `888'      888      888    888 `88b.         888 .   888      888    888     888     888     888      o.    )88b \n          `8'        `Y8bod8P'   o888o o888o      \"888\"   `Y8bod8P'     888bod8P'     `V88V\"V8P'     8\"\"888P' \n                                                     \t                                    888                            \n                                                        \t                                  o888o                           \n                                                                                        ");
+            this.setTitle("Voktopus");
+            jLabel4.setText("keine");
+            JOptionPane.showMessageDialog(null, "Keine Datenbanken gefunden!", "Einlesefehler", JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            for (int i = 0; i < children.length; i++) {
                 String filename = children[i];
                 System.out.println(children[i] + "\t=> Output from File dir TEST");
-                }
             }
-         
-            
-                int bug = children.length * 4 + 100; //Random Buffer
-                int bag = 0;
-                System.err.println("Randombuffer (bug) = " + bug);
-                repeter = true;
-           do {
-            
+        }
+
+        int bug = children.length * 4 + 100; //Random Buffer
+        int bag = 0;
+        System.err.println("Randombuffer (bug) = " + bug);
+        repeter = true;
+        do {
+
             //Zufällig Datei wählen
             Random zufall = new Random();
             if (children.length == 0) {
@@ -611,7 +605,7 @@ public class Voktopus extends javax.swing.JFrame {
                 jButton2.setEnabled(startbtn);
                 jButton5.setEnabled(startbtn);
                 jTextArea1.setEnabled(startbtn);
-                
+
                 jButton5.setEnabled(startbtn);
                 startbtn = true; //Stop Funktion
                 jButton3.setText("Start");
@@ -629,46 +623,46 @@ public class Voktopus extends javax.swing.JFrame {
             int zufallswert = zufall.nextInt(children.length);
             auslese = children[zufallswert];
             System.out.println(auslese + "\t=> Output from Random");
-            
+
             //Random Auslese Untersuchen
             try {
-            FileReader fr = new FileReader("vdata/" + profil + "/" + ordner + "/" + auslese);
-            BufferedReader br = new BufferedReader(fr);
-            untersuchung = br.read();
-            br.close();
-        } catch (Exception e) {
-        }
-            untersuchung = untersuchung -48;
+                FileReader fr = new FileReader("vdata/" + profil + "/" + ordner + "/" + auslese);
+                BufferedReader br = new BufferedReader(fr);
+                untersuchung = br.read();
+                br.close();
+            } catch (Exception e) {
+            }
+            untersuchung = untersuchung - 48;
             combocheck = jComboBox1.getSelectedIndex();
-            
+
             System.out.println("\n" + combocheck + " => Output from combocheck\n");
             System.out.println("\n" + untersuchung + " => Output from untersuchung\n");
-            if (untersuchung == combocheck) { 
+            if (untersuchung == combocheck) {
                 //auslese soll wert behalten und an gesamtausgabe weitergeben
                 repeter = false;
-            }else {
+            } else {
                 repeter = true;
             }
             bag++;
-            if (bag == bug){
-                    repeter = false;
-                    startbtn = true; //Stop Funktion
-                    jButton3.setText("Start");
-                    jButton1.setEnabled(false);
-                    jButton2.setEnabled(false);
-                    jTextArea1.setEnabled(false);
-                    jLabel4.setText("keine");
-                    jComboBox1.setEnabled(true);
-                    jButton5.setEnabled(false);
-                    jButton6.setEnabled(true);
-                    JOptionPane.showMessageDialog(null, "Keine Datenbanken mehr in diesem Karteikasten!", "Randombuffer Overflow", JOptionPane.ERROR_MESSAGE);
-                    jTextArea1.setText("oooooo      oooo               oooo                      .                                             \n    `888.      .8'                   `888                   .o8                                             \n     `888.    .8'     .ooooo.      888    oooo   .o888oo   .ooooo.       oo.ooooo.     oooo    oooo       .oooo.o \n      `888. .8'    d88'    `88b    888 .8P'          888     d88'   `88b     888'   `88b    `888    `888      d88(     \"8 \n       `888.8'    888      888    888888.           888     888      888    888     888     888     888        `\"Y88b.  \n        `888'      888      888    888 `88b.         888 .   888      888    888     888     888     888      o.    )88b \n          `8'        `Y8bod8P'   o888o o888o      \"888\"   `Y8bod8P'     888bod8P'     `V88V\"V8P'     8\"\"888P' \n                                                     \t                                    888                            \n                                                        \t                                  o888o                           \n                                                                                        ");
-                    this.setTitle("Voktopus");
-                    return;
-               }
-           }while(repeter); 
-           
-            //Gesamt Ausgabe
+            if (bag == bug) {
+                repeter = false;
+                startbtn = true; //Stop Funktion
+                jButton3.setText("Start");
+                jButton1.setEnabled(false);
+                jButton2.setEnabled(false);
+                jTextArea1.setEnabled(false);
+                jLabel4.setText("keine");
+                jComboBox1.setEnabled(true);
+                jButton5.setEnabled(false);
+                jButton6.setEnabled(true);
+                JOptionPane.showMessageDialog(null, "Keine Datenbanken mehr in diesem Karteikasten!", "Randombuffer Overflow", JOptionPane.ERROR_MESSAGE);
+                jTextArea1.setText("oooooo      oooo               oooo                      .                                             \n    `888.      .8'                   `888                   .o8                                             \n     `888.    .8'     .ooooo.      888    oooo   .o888oo   .ooooo.       oo.ooooo.     oooo    oooo       .oooo.o \n      `888. .8'    d88'    `88b    888 .8P'          888     d88'   `88b     888'   `88b    `888    `888      d88(     \"8 \n       `888.8'    888      888    888888.           888     888      888    888     888     888     888        `\"Y88b.  \n        `888'      888      888    888 `88b.         888 .   888      888    888     888     888     888      o.    )88b \n          `8'        `Y8bod8P'   o888o o888o      \"888\"   `Y8bod8P'     888bod8P'     `V88V\"V8P'     8\"\"888P' \n                                                     \t                                    888                            \n                                                        \t                                  o888o                           \n                                                                                        ");
+                this.setTitle("Voktopus");
+                return;
+            }
+        } while (repeter);
+
+        //Gesamt Ausgabe
         try {
             FileReader fr = new FileReader("vdata/" + profil + "/" + ordner + "/" + auslese);
             BufferedReader br = new BufferedReader(fr);
@@ -679,27 +673,27 @@ public class Voktopus extends javax.swing.JFrame {
             br.close();
         } catch (Exception e) {
         }
-        
+
         //System.out.println für Konsolen Log + Debuging
         System.out.println("--------------------------");
         System.out.println(uberschrift + "\t=> Output from uberschrift String");
         this.setTitle(uberschrift);
-        
+
         //Verarbeitung von inhalt
         System.out.println(inhalt + "\t=> Output from inhalt String");
         jTextArea1.setText(""); //Textbox leeren
-        for(int i = 0; i < inhalt.length(); i++) {
+        for (int i = 0; i < inhalt.length(); i++) {
             if (inhalt.charAt(i) != 'µ') {
                 jTextArea1.setText(jTextArea1.getText() + inhalt.charAt(i));
-            }else{
+            } else {
                 jTextArea1.setText(jTextArea1.getText() + "\n");
             }
         }
         //jTextArea1.setText(inhalt);
-        
+
         System.out.println(losung + "\t=> Output from losung String");
         jLabel4.setText(auslese);
-        
+
         //Lösungsbutton im Falle keiner Lösung entfernen
         if (losung.equalsIgnoreCase("Keine Lösung")) {
             jButton5.setEnabled(false);
@@ -709,8 +703,7 @@ public class Voktopus extends javax.swing.JFrame {
             System.out.println("--------------------------");
         }
     }
-    
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

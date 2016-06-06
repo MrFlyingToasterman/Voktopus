@@ -13,7 +13,7 @@ public class sysinput extends javax.swing.JFrame {
     public static int ccheck; //ccheck (combocheck) 0 = pool und 1-4 = Kasten 1 bis 4
     public static String profilx;
     vphelper vh = new vphelper(); //oop bausteine
-    
+
     /**
      * Creates new form sysinput
      */
@@ -21,9 +21,9 @@ public class sysinput extends javax.swing.JFrame {
         initComponents();
         abgleich();
     }
-    
+
     public static void abgleich() {
-        
+
         ccheck = Voktopus.combocheck;
         String ubergang;
         switch (ccheck) {
@@ -47,7 +47,7 @@ public class sysinput extends javax.swing.JFrame {
                 break;
         }
         jLabel6.setText("" + ubergang); //Kasten
-        
+
         jLabel8.setText(profil); // Profil
     }
 
@@ -175,148 +175,148 @@ public class sysinput extends javax.swing.JFrame {
         String uberschrift = jTextField1.getText();
         String inhalt = jTextField2.getText();
         String losung = jTextField3.getText();
-        
+
         //Überschrift prüfen
         if (uberschrift.equals("")) {
             vh.alert_err("Datenbank0 kann nicht Void sein!", "Datenbanken Fehler");
             vh.alert_info("Überschrift Prüfen!", "Datenbanken Fehler");
             return;
         }
-        
+
         //Überschreibungsschutz
         //Daten Lesen
         File pooldir = new File("vdata/" + profil + "/pool");
         File kastendir = new File("vdata/" + profil + "/kasten");
         String poolfiles;
         String kastenfiles;
-        
+
         poolfiles = "";
         kastenfiles = "";
-        
+
         String[] poolchildren = pooldir.list();
-            if (poolchildren == null) {
-                //nicht vorhanden
-                poolfiles = "";
-            } else {
-                for (int i=0; i<poolchildren.length; i++) {
+        if (poolchildren == null) {
+            //nicht vorhanden
+            poolfiles = "";
+        } else {
+            for (int i = 0; i < poolchildren.length; i++) {
                 poolfiles = poolfiles + poolchildren[i] + " ";
-                }
             }
-            
-            String[] kastenchildren = kastendir.list();
-            if (kastenchildren == null) {
-                //nicht vorhanden
-                kastenfiles = "";
-            } else {
-                for (int i=0; i<kastenchildren.length; i++) {
+        }
+
+        String[] kastenchildren = kastendir.list();
+        if (kastenchildren == null) {
+            //nicht vorhanden
+            kastenfiles = "";
+        } else {
+            for (int i = 0; i < kastenchildren.length; i++) {
                 kastenfiles = kastenfiles + kastenchildren[i] + " ";
-                }
             }
-            String uberschriftendung = uberschrift + ".vpus";
+        }
+        String uberschriftendung = uberschrift + ".vpus";
         if (poolfiles.contains(uberschriftendung)) {
             //Sicherheitsfrage "Sind Sie sicher dass Sie NAME Löschen wollen ?"
-        int reply = JOptionPane.showConfirmDialog(null, "Es gibt bereits " + uberschriftendung + "\nSind Sie sicher dass Sie " + uberschriftendung + " überschreiben wollen ?", "Bestätigen", JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {
-            System.out.println("überschreiben vom User bestätigt!");
-          
-        //Löschen der gewählten Datei
-        try{
-    		
-    		File file = new File("vdata/" + profil + "/pool/" + uberschriftendung);
-        	
-    		if(file.delete()){
-    			System.out.println(file.getName() + " is deleted!");
-    		}else{
-    			System.out.println("Delete operation is failed.");
-    		}
-    	   
-    	}catch(Exception e){}
-        }
-        else {
-           JOptionPane.showMessageDialog(null, "Abgebrochen!");
-           return;
-        }
+            int reply = JOptionPane.showConfirmDialog(null, "Es gibt bereits " + uberschriftendung + "\nSind Sie sicher dass Sie " + uberschriftendung + " überschreiben wollen ?", "Bestätigen", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                System.out.println("überschreiben vom User bestätigt!");
+
+                //Löschen der gewählten Datei
+                try {
+
+                    File file = new File("vdata/" + profil + "/pool/" + uberschriftendung);
+
+                    if (file.delete()) {
+                        System.out.println(file.getName() + " is deleted!");
+                    } else {
+                        System.out.println("Delete operation is failed.");
+                    }
+
+                } catch (Exception e) {
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Abgebrochen!");
+                return;
+            }
         }
         if (kastenfiles.contains(uberschriftendung)) {
             //Sicherheitsfrage "Sind Sie sicher dass Sie NAME Löschen wollen ?"
-        int reply = JOptionPane.showConfirmDialog(null, "Es gibt bereits " + uberschriftendung + "\nSind Sie sicher dass Sie " + uberschriftendung + " überschreiben wollen ?", "Bestätigen", JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {
-            System.out.println("überschreiben vom User bestätigt!");
-            //Löschen der gewählten Datei
-        try{
-    		
-    		File file = new File("vdata/" + profil + "/kasten/" + uberschriftendung);
-        	
-    		if(file.delete()){
-    			System.out.println(file.getName() + " is deleted!");
-    		}else{
-    			System.out.println("Delete operation is failed.");
-    		}
-    	   
-    	}catch(Exception e){}
+            int reply = JOptionPane.showConfirmDialog(null, "Es gibt bereits " + uberschriftendung + "\nSind Sie sicher dass Sie " + uberschriftendung + " überschreiben wollen ?", "Bestätigen", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                System.out.println("überschreiben vom User bestätigt!");
+                //Löschen der gewählten Datei
+                try {
+
+                    File file = new File("vdata/" + profil + "/kasten/" + uberschriftendung);
+
+                    if (file.delete()) {
+                        System.out.println(file.getName() + " is deleted!");
+                    } else {
+                        System.out.println("Delete operation is failed.");
+                    }
+
+                } catch (Exception e) {
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Abgebrochen!");
+                return;
+            }
         }
-        else {
-           JOptionPane.showMessageDialog(null, "Abgebrochen!");
-           return;
-        }
-        }
-        
+
         //Verhinder /
         if (uberschrift.contains("/")) {
             JOptionPane.showMessageDialog(null, "Eine Datenbank darf kein '/' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Verhinder |
         if (uberschrift.contains("|")) {
             JOptionPane.showMessageDialog(null, "Eine Datenbank darf kein '|' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Verhinder \
         if (uberschrift.contains("\\")) {
             JOptionPane.showMessageDialog(null, "Eine Datenbank darf kein '\\' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Verhinder "
         if (uberschrift.contains("\"")) {
             JOptionPane.showMessageDialog(null, "Eine Datenbank darf kein '\"' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Verhinder Zeichenfehler
         if (uberschrift.contains("µ") || uberschrift.contains("!") || uberschrift.contains("?") || uberschrift.contains("<") || uberschrift.contains(">")) {
             JOptionPane.showMessageDialog(null, "zeichenfehler", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Combowert besorgen
         ccheck = Voktopus.combocheck;
-        
+
         //verzeichnis erstellen
         File f1 = new File("vdata/" + profil + "/pool"); //Verzeichnis kann ohne Probleme erstellt werden
         f1.mkdir();
-        
+
         //verzeichnis erstellen
         File f2 = new File("vdata/" + profil + "/kasten"); //Verzeichnis kann ohne Probleme erstellt werden
         f2.mkdir();
-        
+
         //Ordner zum speichern festlegen
         String ordner;
-        
+
         if (ccheck == 0) {
-          ordner = "pool";
-        }else{
+            ordner = "pool";
+        } else {
             ordner = "kasten";
         }
-        
+
         System.out.println("In Ordner: " + ordner);
-        
+
         //Speichern
         vh.write(profil + "/" + ordner + "/" + uberschrift, "vdata/", ccheck + "\n" + uberschrift + "\n" + inhalt + "\n" + losung);
         this.hide();
-        
+
         //Scan nach änderung für sysinit
         sysinit.poolscan();
         sysinit.scan();

@@ -12,7 +12,7 @@ import static voktopus.Voktopus.profil;
  * @author Darius Musiolik
  */
 public class sysprofile extends javax.swing.JFrame {
-    
+
     public static String mark3;
     vphelper vh = new vphelper();
 
@@ -24,43 +24,42 @@ public class sysprofile extends javax.swing.JFrame {
         profscan();
         setwindowname("Mommentan ausgewähltes Profil: " + profil);
     }
-    
+
     public void setwindowname(String name) {
         this.setTitle(name);
     }
-    
+
     public static void profscan() {
         File file = new File("vdata/"); // Lese inhalte
-        String[] files = file.list(); 
+        String[] files = file.list();
         int xvpuszahler = 0;
-        
+
         //Zählen der xvpus Dateien
         for (int i = 0; i < files.length; i++) {
             if (files[i].contains(".xvpus")) {
                 xvpuszahler++;
             }
         }
-        
+
         //xvpuszähler wert ausgeben
         System.out.println("xvpuszählerwert = " + xvpuszahler);
         System.out.println("Files Bounds = " + files.length);
-        
-        
+
         // cleanfiles Array anlegen mit angepassten Bounds
-        String[] cleanfiles = new String [files.length - xvpuszahler];
+        String[] cleanfiles = new String[files.length - xvpuszahler];
         //xvpus Daten auslassen
         int i2 = -1;
         for (int i = 0; i < files.length; i++) {
             System.out.println(files[i]);
             if (files[i].contains(".xvpus")) {
                 System.out.println("xpus berücksichtigt");
-            }else{
+            } else {
                 i2++;
                 cleanfiles[i2] = files[i];
                 System.out.println("cleanfiles bounds = " + cleanfiles.length);
             }
         }
-        
+
         jList1.setListData(cleanfiles);
         Voktopus.leistungslesen();
     }
@@ -153,139 +152,139 @@ public class sysprofile extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Neues Profil
         String nprofil = JOptionPane.showInputDialog("Bitte geben Sie einen Namen für das Profil an: ");
-        
+
         if (nprofil == null) {
             System.out.println("NullPointerExeption gefangen");
             return;
         }
-        
+
         //Verhinder dass es leer oder leerzeichen ist
         if (nprofil.contains(" ")) {
             JOptionPane.showMessageDialog(null, "Ein Profil darf nicht Void sein!!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-         //Verhinder zahlen am Anfan
+
+        //Verhinder zahlen am Anfan
         if (nprofil.startsWith("1") || nprofil.startsWith("2") || nprofil.startsWith("3") || nprofil.startsWith("4") || nprofil.startsWith("5") || nprofil.startsWith("6") || nprofil.startsWith("7") || nprofil.startsWith("8") || nprofil.startsWith("9") || nprofil.startsWith("0")) {
             JOptionPane.showMessageDialog(null, "Ein Profil darf nicht mit einer Zahl anfangen!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Verhinder /
         if (nprofil.contains("/")) {
             JOptionPane.showMessageDialog(null, "Ein Profil darf kein '/' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Verhinder dass sys.xvpus erstellt wird
         if (nprofil.equalsIgnoreCase("sys.xvpus")) {
             JOptionPane.showMessageDialog(null, "Sie können die Systemdatenbank nicht erstellen!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Verhinder .
         if (nprofil.contains(".")) {
             JOptionPane.showMessageDialog(null, "Ein Profil darf kein '.' enthalten!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        File proff = new File ("vdata/" + nprofil);           
+
+        File proff = new File("vdata/" + nprofil);
         proff.mkdir();
-        
+
         //Leistungsindex erstellen
         vh.xwrite(nprofil, "vdata/", "0x0");
-        
+
         profscan(); //neue Profile suchen
         setwindowname("Mommentan ausgewähltes Profil: " + profil); //namen anpassen
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Profil Aktiviren
-        
+
         mark3 = jList1.getSelectedValue();
-        
-         //Verhinder dass sys.xvpus geladen wird
+
+        //Verhinder dass sys.xvpus geladen wird
         if (mark3.equalsIgnoreCase("sys.xvpus")) {
             JOptionPane.showMessageDialog(null, "Sie können die Systemdatenbank nicht laden!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         profil = jList1.getSelectedValue();
-        
+
         //Speichern
         try {
 
-			String content = profil;
+            String content = profil;
 
-			File file = new File("vdata/sys.xvpus");
+            File file = new File("vdata/sys.xvpus");
 
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                file.createNewFile();
+            }
 
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(content);
-			bw.close();
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
 
-			System.out.println("Done \t=> Output from FileWriter\n");
-                        
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+            System.out.println("Done \t=> Output from FileWriter\n");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Voktopus.leistungslesen();
         sysinit.pscan();
         sysinit.poolscan();
         //JOptionPane.showMessageDialog(null, "who u gonna call ?", "Abbruch", JOptionPane.ERROR_MESSAGE);
         sysinit.scan();
         Voktopus.profild();
-        
+
         setwindowname("Mommentan ausgewähltes Profil: " + profil); //namen anpassen
         JOptionPane.showMessageDialog(null, profil + " wurde erfolgreich geladen!", "Erfolgreich!", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Profil löschen
-        
+
         //mark3 updaten
         mark3 = jList1.getSelectedValue();
-        
+
         //Prüfe ob Profil geladen ist
         if (mark3.equalsIgnoreCase(profil)) {
             JOptionPane.showMessageDialog(null, "Sie können kein aktiviertes Profil löschen!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Verhinder dass sys.xvpus gelöscht wird
         if (mark3.equalsIgnoreCase("sys.xvpus")) {
             JOptionPane.showMessageDialog(null, "Sie können die Systemdatenbank nicht löschen!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Sicherheitsfrage "Sind Sie sicher dass Sie NAME Löschen wollen ?"
         int reply = JOptionPane.showConfirmDialog(null, "Sind Sie sicher dass Sie " + mark3 + " löschen wollen ?", "Bestätigen", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
             System.out.println("Löschen vom User bestätigt!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Abgebrochen!");
+            return;
         }
-        else {
-           JOptionPane.showMessageDialog(null, "Abgebrochen!");
-           return;
-        }
-        
+
         //Löschen der gewählten Datei
-        try{
-    		
-    		File file = new File("vdata/" + mark3);
-        	
-    		if(file.delete()){
-    			System.out.println(file.getName() + " is deleted!");
-    		}else{
-    			System.out.println("Delete operation is failed.");
-    		}
-    	   
-    	}catch(Exception e){}
-        
+        try {
+
+            File file = new File("vdata/" + mark3);
+
+            if (file.delete()) {
+                System.out.println(file.getName() + " is deleted!");
+            } else {
+                System.out.println("Delete operation is failed.");
+            }
+
+        } catch (Exception e) {
+        }
+
         Voktopus.leistungslesen();
         //reload
         profscan(); //neue Profile suchen
@@ -295,26 +294,26 @@ public class sysprofile extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // profil umbenennen
         mark3 = jList1.getSelectedValue();
-        
+
         //Prüfe ob Profil geladen ist
         if (mark3.equalsIgnoreCase(profil)) {
             JOptionPane.showMessageDialog(null, "Sie können kein aktiviertes Profil umbennenen!", "Abbruch", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         String eingabe;
-        
+
         eingabe = JOptionPane.showInputDialog("Geben Sie einen neuen Namen ein.");
         if (eingabe == null) {
             System.out.println("Abbruch");
             return;
         }
-        
-        File alt = new File ("vdata/" + mark3);
-        File neu = new File ("vdata/" + eingabe);
-        
+
+        File alt = new File("vdata/" + mark3);
+        File neu = new File("vdata/" + eingabe);
+
         alt.renameTo(neu);
-        
+
         Voktopus.leistungslesen();
         //reload
         profscan(); //neue Profile suchen

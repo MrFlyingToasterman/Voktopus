@@ -25,12 +25,11 @@ public class sysinit extends javax.swing.JFrame {
     public static String uberschrift;
     public static String inhalt;
     public static String losung;
-    
+
     public static int datalang;
-    
+
     public static String suchwert;
-    
-    
+
     public static boolean check0 = false;
     public static boolean check1 = false;
     private String[] argz;
@@ -44,161 +43,161 @@ public class sysinit extends javax.swing.JFrame {
         poolscan();
         scan();
     }
-    
+
     public static void pscan() {
         jLabel5.setText(profil);
     }
-    
+
     public static void poolscan() {
-        
+
         //Daten Lesen
         File dir = new File("vdata/" + profil + "/pool");
-   
+
         String[] children = dir.list();
         int untersuchung = 0;
         int poollang = -1;
-        
-            if (children == null) {
-                //nicht vorhanden
-                //JOptionPane.showMessageDialog(null, "KEINE SPEICHERDATEI VORHANDEN!", "DATENBANK NICHT GEFUNDEN!", JOptionPane.ERROR_MESSAGE);
-                System.out.println("Keine Datenbanken gefunden!");
-                
-                //Leer anzeigen lassen!
-                String[] leer = {"Keine Einträge!"};
-                jList1.setListData(leer);
-                jList2.setListData(leer);
-                
-                check0 = false;
-                return;
-            } else {
-                check0 = true;
-                for (int i=0; i<children.length; i++) {
+
+        if (children == null) {
+            //nicht vorhanden
+            //JOptionPane.showMessageDialog(null, "KEINE SPEICHERDATEI VORHANDEN!", "DATENBANK NICHT GEFUNDEN!", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Keine Datenbanken gefunden!");
+
+            //Leer anzeigen lassen!
+            String[] leer = {"Keine Einträge!"};
+            jList1.setListData(leer);
+            jList2.setListData(leer);
+
+            check0 = false;
+            return;
+        } else {
+            check0 = true;
+            for (int i = 0; i < children.length; i++) {
                 String filename = children[i];
                 System.out.println(children[i] + "\t=> Output from File scan");
-                
+
+                try {
+                    FileReader fr = new FileReader("vdata/" + profil + "/pool/" + children[i]);
+                    BufferedReader br = new BufferedReader(fr);
+                    untersuchung = br.read();
+                    br.close();
+                } catch (Exception e) {
+                }//End of Try
+                untersuchung = untersuchung - 48;
+
+                if (untersuchung == 0) {
+                    poollang++;
+                } else {
                     try {
-                        FileReader fr = new FileReader("vdata/" + profil + "/pool/" + children[i]);
-                        BufferedReader br = new BufferedReader(fr);
-                        untersuchung = br.read();
-                        br.close();
+                        Files.move(Paths.get("vdata/" + profil + "/pool/" + children[i]), Paths.get("vdata/" + profil + "/kasten/" + children[i]));
                     } catch (Exception e) {
-                    }//End of Try
-                     untersuchung = untersuchung -48;
-                    
-                    if (untersuchung == 0) {
-                        poollang++;
-                    }else{
-                        try {
-                            Files.move(Paths.get("vdata/" + profil + "/pool/" + children[i]), Paths.get("vdata/" + profil + "/kasten/" + children[i]));
-                        } catch (Exception e) {
-                        } 
-                    }//End of if2
-                    
-                }//End of for 
-                 
-                untersuchung = 0; //Saubermachmann
-                String[] pool = new String[poollang+1];
-                int poollaufer = -1;
-                
-                for (int i=0; i<children.length; i++) {
-                
-                    try {
-                        FileReader fr = new FileReader("vdata/" + profil + "/pool/" + children[i]);
-                        BufferedReader br = new BufferedReader(fr);
-                        untersuchung = br.read();
-                        br.close();
-                    } catch (Exception e) {
-                    }//End of Try
-                    
-                        untersuchung = untersuchung -48;
-                        if (untersuchung == 0) {
-                            poollaufer++;
-                            pool[poollaufer] = children[i];                      
-                        }//End of if3
-                    
-                }//End of for 
-                
-                Arrays.sort(pool);
-                jList1.setListData(pool);
-                
-                jLabel7.setText("Datenbanken im Pool: " + pool.length);
-            }//End of if
+                    }
+                }//End of if2
+
+            }//End of for 
+
+            untersuchung = 0; //Saubermachmann
+            String[] pool = new String[poollang + 1];
+            int poollaufer = -1;
+
+            for (int i = 0; i < children.length; i++) {
+
+                try {
+                    FileReader fr = new FileReader("vdata/" + profil + "/pool/" + children[i]);
+                    BufferedReader br = new BufferedReader(fr);
+                    untersuchung = br.read();
+                    br.close();
+                } catch (Exception e) {
+                }//End of Try
+
+                untersuchung = untersuchung - 48;
+                if (untersuchung == 0) {
+                    poollaufer++;
+                    pool[poollaufer] = children[i];
+                }//End of if3
+
+            }//End of for 
+
+            Arrays.sort(pool);
+            jList1.setListData(pool);
+
+            jLabel7.setText("Datenbanken im Pool: " + pool.length);
+        }//End of if
     }//End of poolscan
-    
+
     public static void scan() {
-        
+
         //Daten Lesen
         File dir = new File("vdata/" + profil + "/kasten");
-   
+
         String[] children = dir.list();
         int untersuchung = 0;
         int kastenlang = -1;
-        
-            if (children == null) {
-                //nicht vorhanden
-                //JOptionPane.showMessageDialog(null, "KEINE SPEICHERDATEI VORHANDEN!", "DATENBANK NICHT GEFUNDEN!", JOptionPane.ERROR_MESSAGE);
-                System.out.println("Keine Datenbanken gefunden!");
-                check1 = false;
-                //Leer anzeigen lassen!
-                String[] leer = {"Keine Einträge!"};
-                jList1.setListData(leer);
-                jList2.setListData(leer);
-                return;
-            } else {
-                check1 = true;
-                for (int i=0; i<children.length; i++) {
+
+        if (children == null) {
+            //nicht vorhanden
+            //JOptionPane.showMessageDialog(null, "KEINE SPEICHERDATEI VORHANDEN!", "DATENBANK NICHT GEFUNDEN!", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Keine Datenbanken gefunden!");
+            check1 = false;
+            //Leer anzeigen lassen!
+            String[] leer = {"Keine Einträge!"};
+            jList1.setListData(leer);
+            jList2.setListData(leer);
+            return;
+        } else {
+            check1 = true;
+            for (int i = 0; i < children.length; i++) {
                 String filename = children[i];
                 System.out.println(children[i] + "\t=> Output from File kastenscan");
-                
-                    try {                    
-                        FileReader fr = new FileReader("vdata/" + profil + "/kasten/" + children[i]);
-                        BufferedReader br = new BufferedReader(fr);
-                        untersuchung = br.read();
-                        System.out.println("untersuchung1: " + untersuchung);
-                        br.close();
-                    } catch (Exception e) {
-                    }//End of Try
-                    
-                    untersuchung = untersuchung -48;
-                    
-                    if (untersuchung == 0) {
-                        try {
-                            Files.move(Paths.get("vdata/" + profil + "/kasten/" + children[i]), Paths.get("vdata/" + profil + "/pool/" + children[i]));
-                        } catch (Exception e) {
-                        } 
-                    }else{
-                        kastenlang++;
-                        
-                    }//End of if2
-                    
-                }//End of for 
-                
-                untersuchung = 0; //Saubermachmann
-                String[] kasten = new String[kastenlang+1];
-                int laufer = -1;
-                
-                for (int i=0; i<children.length; i++) {
-                
+
+                try {
+                    FileReader fr = new FileReader("vdata/" + profil + "/kasten/" + children[i]);
+                    BufferedReader br = new BufferedReader(fr);
+                    untersuchung = br.read();
+                    System.out.println("untersuchung1: " + untersuchung);
+                    br.close();
+                } catch (Exception e) {
+                }//End of Try
+
+                untersuchung = untersuchung - 48;
+
+                if (untersuchung == 0) {
                     try {
-                        FileReader fr = new FileReader("vdata/" + profil + "/kasten/" + children[i]);
-                        BufferedReader br = new BufferedReader(fr);
-                        untersuchung = br.read();
-                        br.close();
+                        Files.move(Paths.get("vdata/" + profil + "/kasten/" + children[i]), Paths.get("vdata/" + profil + "/pool/" + children[i]));
                     } catch (Exception e) {
-                    }//End of Try
-                        untersuchung = untersuchung -48; 
-                        if (untersuchung != 0) {
-                            laufer++;
-                            kasten[laufer] = children[i];
-                        }//End of if3
-                    
-                }//End of for 
-                
-                Arrays.sort(kasten);
-                jList2.setListData(kasten);
-                
-                jLabel6.setText("Datenbanken im Karteisystem: " + kasten.length);
-            }//End of if
+                    }
+                } else {
+                    kastenlang++;
+
+                }//End of if2
+
+            }//End of for 
+
+            untersuchung = 0; //Saubermachmann
+            String[] kasten = new String[kastenlang + 1];
+            int laufer = -1;
+
+            for (int i = 0; i < children.length; i++) {
+
+                try {
+                    FileReader fr = new FileReader("vdata/" + profil + "/kasten/" + children[i]);
+                    BufferedReader br = new BufferedReader(fr);
+                    untersuchung = br.read();
+                    br.close();
+                } catch (Exception e) {
+                }//End of Try
+                untersuchung = untersuchung - 48;
+                if (untersuchung != 0) {
+                    laufer++;
+                    kasten[laufer] = children[i];
+                }//End of if3
+
+            }//End of for 
+
+            Arrays.sort(kasten);
+            jList2.setListData(kasten);
+
+            jLabel6.setText("Datenbanken im Karteisystem: " + kasten.length);
+        }//End of if
     }
 
     @SuppressWarnings("unchecked")
@@ -527,24 +526,24 @@ public class sysinit extends javax.swing.JFrame {
         int reply = JOptionPane.showConfirmDialog(null, "Sind Sie sicher dass Sie " + mark + " löschen wollen ?", "Bestätigen", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
             System.out.println("Löschen vom User bestätigt!");
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(null, "Abgebrochen!");
             return;
         }
 
         //Löschen der gewählten Datei
-        try{
+        try {
 
             File file = new File("vdata/" + profil + "/pool/" + mark);
 
-            if(file.delete()){
+            if (file.delete()) {
                 System.out.println(file.getName() + " is deleted!");
-            }else{
+            } else {
                 System.out.println("Delete operation is failed.");
             }
 
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
 
         //reload
         scan();
@@ -576,7 +575,7 @@ public class sysinit extends javax.swing.JFrame {
 
         //Priorität anzeigen
         //System.out.println(prio);
-        prio = prio -48;
+        prio = prio - 48;
         jComboBox1.setSelectedIndex(prio);
         jComboBox1.setEnabled(true);
 
@@ -626,17 +625,18 @@ public class sysinit extends javax.swing.JFrame {
         losung = jTextField3.getText();
 
         //Löschen der alten Datei
-        try{
+        try {
 
             File file = new File("vdata/" + profil + "/pool/" + mark);
 
-            if(file.delete()){
+            if (file.delete()) {
                 System.out.println("\n" + file.getName() + " is deleted!");
-            }else{
+            } else {
                 System.out.println("Delete operation is failed.");
             }
 
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
 
         //Speichern
         try {
@@ -689,7 +689,7 @@ public class sysinit extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // Suchen Funktion
-        suchwert= JOptionPane.showInputDialog("Suche: ");
+        suchwert = JOptionPane.showInputDialog("Suche: ");
 
         int start = 0;
         int suche = jList1.getNextMatch(suchwert, start, javax.swing.text.Position.Bias.Forward);
@@ -724,17 +724,18 @@ public class sysinit extends javax.swing.JFrame {
         }
 
         //Löschen der alten Datei
-        try{
+        try {
 
             File file = new File("vdata/" + profil + "/pool/" + mark);
 
-            if(file.delete()){
+            if (file.delete()) {
                 System.out.println("\n" + file.getName() + " is deleted!");
-            }else{
+            } else {
                 System.out.println("Delete operation is failed.");
             }
 
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
 
         //Speichern
         try {
@@ -783,17 +784,18 @@ public class sysinit extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         //Löschen der alten Datei
-        try{
+        try {
 
             File file = new File("vdata/" + profil + "/kasten/" + mark2);
 
-            if(file.delete()){
+            if (file.delete()) {
                 System.out.println("\n" + file.getName() + " is deleted!");
-            }else{
+            } else {
                 System.out.println("Delete operation is failed.");
             }
 
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
 
         prio = prio - 48;
 
@@ -867,17 +869,17 @@ public class sysinit extends javax.swing.JFrame {
         // Erweiterte Einstellungen Button
         //Bearbeitung Bald. Geplant sind anpassungen für speicherdatein und farbauswahl für die GUI
         sysdeepsettings.main(argz);
-        
+
     }//GEN-LAST:event_jButton11ActionPerformed
 
     public static void markin() {
         mark = jList1.getSelectedValue();
     }
-    
+
     public static void markin2() {
         mark2 = jList2.getSelectedValue();
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
