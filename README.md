@@ -7,7 +7,7 @@ Ein Vokabeltrainer der mehr kann.
 Voktopus verfügt über einen Pool (auch Ablage genannt), der von dir gefüttert werden will!
 Aus dem Pool können gewünschte Karten mit beliebigen Fragen in die Lernkästen gezogen werden.
 
-# 4er Kastensystem
+# 4'er Kastensystem
 Voktopus verfügt über 4 Karteikästen. Wenn Sie eine Frage beantworten konnten, bewegt sie sich <br>
 einen Kasten nach oben. Andernfalls nach unten.<br>
 Kasten 1 | Kasten 2 | Kasten 3 | Kasten 4 <br>
@@ -25,7 +25,7 @@ nach unserem bewährten Prinzip abfragen
 # Frei
 Fühle Dich frei meine Software zu verwenden, zu verbessern oder sonst irgendwas damit zu tun.
 
-# Kompatibelität
+# Kompatibilität
 Voktopus wurde für GNU/Linux konzipiert läuft aber auch auf MacOS und Windoof.
 
 # Anmerkung
